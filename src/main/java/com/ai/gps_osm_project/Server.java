@@ -148,7 +148,6 @@ public class Server {
     // Main method to start the server
     public static void main(String[] args) {
         Server server = new Server(5000);
-        server.run();
-        System.out.println();;
+        server.run();;
     }
 }
