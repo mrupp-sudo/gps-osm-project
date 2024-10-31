@@ -1,0 +1,20 @@
+add(position(3)).
+add(node(3)).
+add(node(4)).
+add(node(5)).
+add(nodeTag(5, "public_transport", "stop_position")).
+add(nodeTag(5, "bus", "yes")).
+add(way(11)).
+add(wayTag(11, "highway", "motorway")).
+add(nextInWay(3, 4, 11)).
+add(way(12)).
+add(wayTag(12, "highway", "motorway")).
+add(nextInWay(4, 5, 12)).
+add(relation(999)).
+add(relationTag(999, "restriction", "no_right_turn")).
+add(relationMember(11, "way", "from", 999)).
+add(relationMember(4, "node", "via", 999)).
+add(relationMember(12, "way", "to", 999)).
+delete(position(1)).
+delete(node(1)).
+delete(nodeTag(1, "highway", "give_way")).

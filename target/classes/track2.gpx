@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" creator="Kurviger.de" version="1.1" xmlns:gh="https://kurviger.de/public/schema/gpx/1.1">
+<metadata>
+<name>Zentralbibliothek Ulm, Ulm - Hauptbahnhof, Ulm</name>
+<copyright author="OpenStreetMap contributors"/>
+<link href="https://kurviger.de">
+<text>Kurviger.de GPX</text>
+</link>
+<time>2024-10-24T10:33:28Z</time>
+</metadata>
+<trk><name>Zentralbibliothek Ulm, Ulm - Hauptbahnhof, Ulm</name><trkseg>
+<trkpt lat="48.401085" lon="9.987207"><ele>483.86</ele><time>2024-10-24T10:39:57Z</time></trkpt>
+<trkpt lat="48.400747" lon="9.985923"><ele>484.79</ele><time>2024-10-24T10:40:04Z</time></trkpt>
+<trkpt lat="48.400286" lon="9.984704"><ele>486.87</ele><time>2024-10-24T10:40:10Z</time></trkpt>
+<trkpt lat="48.400221" lon="9.984514"><ele>485.29</ele><time>2024-10-24T10:40:17Z</time></trkpt>
+<trkpt lat="48.400053" lon="9.984215"><ele>482.54</ele><time>2024-10-24T10:40:23Z</time></trkpt>
+<trkpt lat="48.399845" lon="9.984044"><ele>482.11</ele><time>2024-10-24T10:40:30Z</time></trkpt>
+<trkpt lat="48.399763" lon="9.984017"><ele>482.31</ele><time>2024-10-24T10:40:36Z</time></trkpt>
+<trkpt lat="48.399433" lon="9.983992"><ele>482.27</ele><time>2024-10-24T10:40:43Z</time></trkpt>
+<trkpt lat="48.39897" lon="9.984035"><ele>478.59</ele><time>2024-10-24T10:40:49Z</time></trkpt>
+<trkpt lat="48.398621" lon="9.984068"><ele>478.28</ele><time>2024-10-24T10:40:56Z</time></trkpt>
+</trkseg>
+</trk>
+</gpx>

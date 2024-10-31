@@ -1,0 +1,2 @@
+add(node(3)).
+add(node(4)).

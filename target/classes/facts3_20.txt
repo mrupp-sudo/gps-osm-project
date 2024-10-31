@@ -1,0 +1,673 @@
+delete(position(2495246916)).
+delete(node(667485093)).
+delete(node(667880266)).
+delete(nodeTag(667880266, "addr:housenumber", "56")).
+delete(nodeTag(667880266, "addr:street", "Neue Strasse")).
+delete(node(785665201)).
+delete(nodeTag(785665201, "bus", "yes")).
+delete(nodeTag(785665201, "wheelchair", "yes")).
+delete(nodeTag(785665201, "tactile_paving", "yes")).
+delete(nodeTag(785665201, "shelter", "yes")).
+delete(nodeTag(785665201, "bench", "yes")).
+delete(nodeTag(785665201, "bin", "yes")).
+delete(nodeTag(785665201, "lit", "yes")).
+delete(nodeTag(785665201, "uic_ref", "801320")).
+delete(nodeTag(785665201, "name", "Steinerne Bruecke")).
+delete(nodeTag(785665201, "public_transport", "platform")).
+delete(nodeTag(785665201, "highway", "bus_stop")).
+delete(node(1035512772)).
+delete(node(1035512786)).
+delete(node(1035512827)).
+delete(node(1439662138)).
+delete(nodeTag(1439662138, "wheelchair", "no")).
+delete(nodeTag(1439662138, "addr:housenumber", "56")).
+delete(nodeTag(1439662138, "website", "https://www.haberfelder-ulm.de/")).
+delete(nodeTag(1439662138, "old_name", "Ulmer Wirtshaus")).
+delete(nodeTag(1439662138, "amenity", "restaurant")).
+delete(nodeTag(1439662138, "indoor_seating", "yes")).
+delete(nodeTag(1439662138, "name", "Zum Haberfelder")).
+delete(nodeTag(1439662138, "opening_hours", "Mo- Su 11:00-24:00")).
+delete(nodeTag(1439662138, "cuisine", "bavarian;german")).
+delete(nodeTag(1439662138, "addr:street", "Neue Strasse")).
+delete(nodeTag(1439662138, "outdoor_seating", "yes")).
+delete(nodeTag(1439662138, "addr:postcode", "89073")).
+delete(node(2495246916)).
+delete(node(2495262393)).
+delete(node(2496115755)).
+delete(node(2496115758)).
+delete(node(2496115767)).
+delete(node(2496115774)).
+delete(node(2496115783)).
+delete(node(2496115786)).
+delete(node(2497871534)).
+delete(node(2505566080)).
+delete(node(2505566081)).
+delete(node(3221748261)).
+delete(nodeTag(3221748261, "amenity", "waste_basket")).
+delete(nodeTag(3221748261, "check_date", "2022-05-31")).
+delete(node(3613457534)).
+delete(node(4139241291)).
+delete(node(4139241292)).
+delete(node(4139241301)).
+delete(node(4443918929)).
+delete(node(4443918939)).
+delete(node(6693607545)).
+delete(node(6693615679)).
+delete(node(6693615684)).
+delete(way(28431405)).
+delete(wayTag(28431405, "waterway", "river")).
+delete(wayTag(28431405, "name", "Grosse Blau")).
+delete(wayTag(28431405, "width", "4")).
+delete(nextInWay(2495262440, 6694412014, 28431405)).
+delete(nextInWay(6694412014, 2495262395, 28431405)).
+delete(nextInWay(2495262395, 2495262464, 28431405)).
+delete(nextInWay(2495262464, 6694412013, 28431405)).
+delete(nextInWay(6694412013, 3127681744, 28431405)).
+delete(nextInWay(3127681744, 3127681743, 28431405)).
+delete(nextInWay(3127681743, 2495262357, 28431405)).
+delete(nextInWay(2495262357, 2495262384, 28431405)).
+delete(nextInWay(2495262384, 2495262393, 28431405)).
+delete(nextInWay(2495262393, 3613457534, 28431405)).
+delete(nextInWay(3613457534, 3613457531, 28431405)).
+delete(nextInWay(3613457531, 2495262458, 28431405)).
+delete(nextInWay(2495262458, 2495262462, 28431405)).
+delete(nextInWay(2495262462, 2495262363, 28431405)).
+delete(nextInWay(2495262363, 2495262365, 28431405)).
+delete(nextInWay(2495262365, 2495262382, 28431405)).
+delete(nextInWay(2495262382, 312384837, 28431405)).
+delete(nextInWay(312384837, 2495262397, 28431405)).
+delete(nextInWay(2495262397, 3245937819, 28431405)).
+delete(nextInWay(3245937819, 2495262378, 28431405)).
+delete(nextInWay(2495262378, 2495262389, 28431405)).
+delete(nextInWay(2495262389, 2496125598, 28431405)).
+delete(nextInWay(2496125598, 312379207, 28431405)).
+delete(nextInWay(312379207, 2496125597, 28431405)).
+delete(nextInWay(2496125597, 6693613982, 28431405)).
+delete(nextInWay(6693613982, 312379208, 28431405)).
+delete(nextInWay(312379208, 312379210, 28431405)).
+delete(nextInWay(312379210, 312379217, 28431405)).
+delete(way(89216923)).
+delete(wayTag(89216923, "roof:shape", "gabled")).
+delete(wayTag(89216923, "building:levels", "2")).
+delete(wayTag(89216923, "roof:colour", "red")).
+delete(wayTag(89216923, "building:colour", "white")).
+delete(wayTag(89216923, "roof:levels", "3")).
+delete(wayTag(89216923, "building", "apartments")).
+delete(nextInWay(1035512810, 1035512678, 89216923)).
+delete(nextInWay(1035512678, 1035512751, 89216923)).
+delete(nextInWay(1035512751, 1035512772, 89216923)).
+delete(nextInWay(1035512772, 6693615684, 89216923)).
+delete(nextInWay(6693615684, 6693607545, 89216923)).
+delete(nextInWay(6693607545, 1035512810, 89216923)).
+delete(way(89216928)).
+delete(wayTag(89216928, "roof:shape", "gabled")).
+delete(wayTag(89216928, "building:levels", "3")).
+delete(wayTag(89216928, "roof:colour", "red")).
+delete(wayTag(89216928, "building:colour", "white")).
+delete(wayTag(89216928, "roof:levels", "2")).
+delete(wayTag(89216928, "building", "retail")).
+delete(nextInWay(1035512786, 6693615679, 89216928)).
+delete(nextInWay(6693615679, 1035512827, 89216928)).
+delete(nextInWay(1035512827, 1035512733, 89216928)).
+delete(nextInWay(1035512733, 1035512825, 89216928)).
+delete(nextInWay(1035512825, 6693615677, 89216928)).
+delete(nextInWay(6693615677, 6693615676, 89216928)).
+delete(nextInWay(6693615676, 6693615675, 89216928)).
+delete(nextInWay(6693615675, 6693615678, 89216928)).
+delete(nextInWay(6693615678, 1035512786, 89216928)).
+delete(way(107458059)).
+delete(wayTag(107458059, "leisure", "park")).
+delete(nextInWay(667485081, 667485083, 107458059)).
+delete(nextInWay(667485083, 667485085, 107458059)).
+delete(nextInWay(667485085, 667485087, 107458059)).
+delete(nextInWay(667485087, 667485089, 107458059)).
+delete(nextInWay(667485089, 667485093, 107458059)).
+delete(nextInWay(667485093, 667485094, 107458059)).
+delete(nextInWay(667485094, 667485096, 107458059)).
+delete(nextInWay(667485096, 667485098, 107458059)).
+delete(nextInWay(667485098, 1234939507, 107458059)).
+delete(nextInWay(1234939507, 1234939510, 107458059)).
+delete(nextInWay(1234939510, 1239245415, 107458059)).
+delete(nextInWay(1239245415, 1239245427, 107458059)).
+delete(nextInWay(1239245427, 1239245424, 107458059)).
+delete(nextInWay(1239245424, 1239245417, 107458059)).
+delete(nextInWay(1239245417, 2487947259, 107458059)).
+delete(nextInWay(2487947259, 1234939493, 107458059)).
+delete(nextInWay(1234939493, 667485104, 107458059)).
+delete(nextInWay(667485104, 667485105, 107458059)).
+delete(nextInWay(667485105, 667485081, 107458059)).
+delete(way(242045601)).
+delete(wayTag(242045601, "tactile_paving", "no")).
+delete(wayTag(242045601, "handrail", "yes")).
+delete(wayTag(242045601, "surface", "concrete")).
+delete(wayTag(242045601, "lit", "no")).
+delete(wayTag(242045601, "ramp", "no")).
+delete(wayTag(242045601, "step_count", "17")).
+delete(wayTag(242045601, "incline", "down")).
+delete(wayTag(242045601, "highway", "steps")).
+delete(nextInWay(2496115774, 2496115783, 242045601)).
+delete(way(242045604)).
+delete(wayTag(242045604, "sidewalk:left", "yes")).
+delete(wayTag(242045604, "surface", "asphalt")).
+delete(wayTag(242045604, "cycleway:left:lane", "advisory")).
+delete(wayTag(242045604, "maxspeed", "50")).
+delete(wayTag(242045604, "cycleway:left", "lane")).
+delete(wayTag(242045604, "source:maxspeed", "DE:urban")).
+delete(wayTag(242045604, "layer", "1")).
+delete(wayTag(242045604, "cycleway:left:traffic_sign", "DE:340")).
+delete(wayTag(242045604, "smoothness", "good")).
+delete(wayTag(242045604, "lcn", "yes")).
+delete(wayTag(242045604, "lit", "yes")).
+delete(wayTag(242045604, "sidewalk:left:surface", "paving_stones")).
+delete(wayTag(242045604, "lanes", "2")).
+delete(wayTag(242045604, "name", "Neue Strasse")).
+delete(wayTag(242045604, "sidewalk:right", "separate")).
+delete(wayTag(242045604, "parking:both", "no")).
+delete(wayTag(242045604, "bridge", "yes")).
+delete(wayTag(242045604, "maxweight:signed", "no")).
+delete(wayTag(242045604, "highway", "tertiary")).
+delete(nextInWay(2495246916, 2496115786, 242045604)).
+delete(way(242045610)).
+delete(wayTag(242045610, "smoothness", "excellent")).
+delete(wayTag(242045610, "bicycle", "no")).
+delete(wayTag(242045610, "surface", "asphalt")).
+delete(wayTag(242045610, "lit", "yes")).
+delete(wayTag(242045610, "highway", "footway")).
+delete(nextInWay(2496115783, 2526885685, 242045610)).
+delete(nextInWay(2526885685, 2496115784, 242045610)).
+delete(nextInWay(2496115784, 2496115760, 242045610)).
+delete(way(242045612)).
+delete(wayTag(242045612, "smoothness", "good")).
+delete(wayTag(242045612, "surface", "concrete")).
+delete(wayTag(242045612, "lit", "no")).
+delete(wayTag(242045612, "highway", "footway")).
+delete(nextInWay(4443918939, 4139241292, 242045612)).
+delete(nextInWay(4139241292, 4139241301, 242045612)).
+delete(nextInWay(4139241301, 2496115774, 242045612)).
+delete(way(242047953)).
+delete(wayTag(242047953, "surface", "asphalt")).
+delete(wayTag(242047953, "turn:lanes:forward", "through|merge_to_left")).
+delete(wayTag(242047953, "cycleway:left:lane", "advisory")).
+delete(wayTag(242047953, "lanes:forward", "2")).
+delete(wayTag(242047953, "maxspeed", "50")).
+delete(wayTag(242047953, "lanes:backward", "1")).
+delete(wayTag(242047953, "cycleway:left", "lane")).
+delete(wayTag(242047953, "source:maxspeed", "DE:urban")).
+delete(wayTag(242047953, "cycleway:left:traffic_sign", "DE:340")).
+delete(wayTag(242047953, "lcn", "yes")).
+delete(wayTag(242047953, "lanes", "3")).
+delete(wayTag(242047953, "name", "Neue Strasse")).
+delete(wayTag(242047953, "parking:both", "no")).
+delete(wayTag(242047953, "highway", "tertiary")).
+delete(nextInWay(2496125591, 2497871534, 242047953)).
+delete(way(243123990)).
+delete(wayTag(243123990, "bus", "yes")).
+delete(wayTag(243123990, "psv", "official")).
+delete(wayTag(243123990, "smoothness", "good")).
+delete(wayTag(243123990, "surface", "asphalt")).
+delete(wayTag(243123990, "lit", "yes")).
+delete(wayTag(243123990, "maxspeed", "20")).
+delete(wayTag(243123990, "description", "Busspur Neue Strasse")).
+delete(wayTag(243123990, "bridge", "yes")).
+delete(wayTag(243123990, "highway", "service")).
+delete(wayTag(243123990, "layer", "1")).
+delete(wayTag(243123990, "vehicle", "no")).
+delete(nextInWay(2505566083, 2505566081, 243123990)).
+delete(way(243123991)).
+delete(wayTag(243123991, "bus", "yes")).
+delete(wayTag(243123991, "psv", "official")).
+delete(wayTag(243123991, "surface", "asphalt")).
+delete(wayTag(243123991, "maxspeed", "20")).
+delete(wayTag(243123991, "description", "Busspur Neue Strasse")).
+delete(wayTag(243123991, "highway", "service")).
+delete(wayTag(243123991, "vehicle", "no")).
+delete(nextInWay(2505566081, 2496115758, 243123991)).
+delete(nextInWay(2496115758, 2505566080, 243123991)).
+delete(nextInWay(2505566080, 2505566078, 243123991)).
+delete(way(328962561)).
+delete(wayTag(328962561, "cycleway:left:traffic_sign", "DE:340")).
+delete(wayTag(328962561, "surface", "asphalt")).
+delete(wayTag(328962561, "lcn", "yes")).
+delete(wayTag(328962561, "cycleway:left:lane", "advisory")).
+delete(wayTag(328962561, "lanes", "2")).
+delete(wayTag(328962561, "maxspeed", "50")).
+delete(wayTag(328962561, "name", "Neue Strasse")).
+delete(wayTag(328962561, "parking:both", "no")).
+delete(wayTag(328962561, "highway", "tertiary")).
+delete(wayTag(328962561, "cycleway:left", "lane")).
+delete(wayTag(328962561, "source:maxspeed", "DE:urban")).
+delete(nextInWay(2497871534, 2496115755, 328962561)).
+delete(nextInWay(2496115755, 2495246916, 328962561)).
+delete(way(412514146)).
+delete(wayTag(412514146, "smoothness", "good")).
+delete(wayTag(412514146, "surface", "paving_stones")).
+delete(wayTag(412514146, "lit", "yes")).
+delete(wayTag(412514146, "bridge", "yes")).
+delete(wayTag(412514146, "highway", "path")).
+delete(wayTag(412514146, "foot", "designated")).
+delete(wayTag(412514146, "layer", "1")).
+delete(nextInWay(4139241302, 4139241291, 412514146)).
+delete(way(412514148)).
+delete(wayTag(412514148, "smoothness", "excellent")).
+delete(wayTag(412514148, "surface", "paving_stones")).
+delete(wayTag(412514148, "highway", "path")).
+delete(wayTag(412514148, "foot", "designated")).
+delete(nextInWay(4139241291, 4139241292, 412514148)).
+delete(nextInWay(4139241292, 4139241293, 412514148)).
+delete(way(447217495)).
+delete(wayTag(447217495, "wheelchair", "yes")).
+delete(wayTag(447217495, "tactile_paving", "yes")).
+delete(wayTag(447217495, "shelter", "yes")).
+delete(wayTag(447217495, "bench", "yes")).
+delete(wayTag(447217495, "bin", "yes")).
+delete(wayTag(447217495, "lit", "yes")).
+delete(wayTag(447217495, "uic_ref", "801320")).
+delete(wayTag(447217495, "name", "Steinerne Bruecke")).
+delete(wayTag(447217495, "public_transport", "platform")).
+delete(wayTag(447217495, "highway", "platform")).
+delete(wayTag(447217495, "start_date", "2006")).
+delete(nextInWay(4443918937, 4443918929, 447217495)).
+delete(nextInWay(4443918929, 4443918939, 447217495)).
+delete(nextInWay(4443918939, 785665201, 447217495)).
+delete(way(760208949)).
+delete(wayTag(760208949, "wheelchair", "yes")).
+delete(wayTag(760208949, "shelter", "yes")).
+delete(wayTag(760208949, "bench", "yes")).
+delete(wayTag(760208949, "bin", "yes")).
+delete(wayTag(760208949, "uic_ref", "801320")).
+delete(wayTag(760208949, "public_transport", "platform")).
+delete(wayTag(760208949, "layer", "1")).
+delete(wayTag(760208949, "tactile_paving", "yes")).
+delete(wayTag(760208949, "lit", "yes")).
+delete(wayTag(760208949, "name", "Steinerne Bruecke")).
+delete(wayTag(760208949, "bridge", "yes")).
+delete(wayTag(760208949, "highway", "platform")).
+delete(wayTag(760208949, "start_date", "2006")).
+delete(nextInWay(785665201, 4447648118, 760208949)).
+delete(way(1206107836)).
+delete(wayTag(1206107836, "bicycle", "no")).
+delete(wayTag(1206107836, "surface", "asphalt")).
+delete(wayTag(1206107836, "highway", "footway")).
+delete(nextInWay(2496115755, 2496115767, 1206107836)).
+delete(nextInWay(2496115767, 11176494487, 1206107836)).
+delete(relation(381359)).
+delete(relationTag(381359, "waterway", "river")).
+delete(relationTag(381359, "destination", "Donau")).
+delete(relationTag(381359, "name", "Blau")).
+delete(relationTag(381359, "wikipedia", "de:Blau (Donau)")).
+delete(relationTag(381359, "type", "waterway")).
+delete(relationTag(381359, "ref:fgkz", "1152")).
+delete(relationTag(381359, "wikidata", "Q562302")).
+delete(nextInRelation(8672010935, 23021391, 381359)).
+delete(relationMember(8672010935, "node", "spring", 381359)).
+delete(nextInRelation(23021391, 307193671, 381359)).
+delete(relationMember(23021391, "way", "main_stream", 381359)).
+delete(nextInRelation(307193671, 307193672, 381359)).
+delete(relationMember(307193671, "way", "main_stream", 381359)).
+delete(nextInRelation(307193672, 169642429, 381359)).
+delete(relationMember(307193672, "way", "main_stream", 381359)).
+delete(nextInRelation(169642429, 302939432, 381359)).
+delete(relationMember(169642429, "way", "main_stream", 381359)).
+delete(nextInRelation(302939432, 302939431, 381359)).
+delete(relationMember(302939432, "way", "main_stream", 381359)).
+delete(nextInRelation(302939431, 4538032, 381359)).
+delete(relationMember(302939431, "way", "main_stream", 381359)).
+delete(nextInRelation(4538032, 4538031, 381359)).
+delete(relationMember(4538032, "way", "main_stream", 381359)).
+delete(nextInRelation(4538031, 28432743, 381359)).
+delete(relationMember(4538031, "way", "main_stream", 381359)).
+delete(nextInRelation(28432743, 4538028, 381359)).
+delete(relationMember(28432743, "way", "main_stream", 381359)).
+delete(nextInRelation(4538028, 4538027, 381359)).
+delete(relationMember(4538028, "way", "main_stream", 381359)).
+delete(nextInRelation(4538027, 4538022, 381359)).
+delete(relationMember(4538027, "way", "main_stream", 381359)).
+delete(nextInRelation(4538022, 324480832, 381359)).
+delete(relationMember(4538022, "way", "main_stream", 381359)).
+delete(nextInRelation(324480832, 4538023, 381359)).
+delete(relationMember(324480832, "way", "main_stream", 381359)).
+delete(nextInRelation(4538023, 4538024, 381359)).
+delete(relationMember(4538023, "way", "main_stream", 381359)).
+delete(nextInRelation(4538024, 4613200, 381359)).
+delete(relationMember(4538024, "way", "main_stream", 381359)).
+delete(nextInRelation(4613200, 242045605, 381359)).
+delete(relationMember(4613200, "way", "main_stream", 381359)).
+delete(nextInRelation(242045605, 324480830, 381359)).
+delete(relationMember(242045605, "way", "main_stream", 381359)).
+delete(nextInRelation(324480830, 324480831, 381359)).
+delete(relationMember(324480830, "way", "main_stream", 381359)).
+delete(nextInRelation(324480831, 28431405, 381359)).
+delete(relationMember(324480831, "way", "main_stream", 381359)).
+delete(nextInRelation(28431405, 1302618530, 381359)).
+delete(relationMember(28431405, "way", "main_stream", 381359)).
+delete(nextInRelation(1302618530, 1302618529, 381359)).
+delete(relationMember(1302618530, "way", "main_stream", 381359)).
+delete(nextInRelation(1302618529, 25531261, 381359)).
+delete(relationMember(1302618529, "way", "main_stream", 381359)).
+delete(nextInRelation(25531261, 301384472, 381359)).
+delete(relationMember(25531261, "way", "side_stream", 381359)).
+delete(nextInRelation(301384472, 143865500, 381359)).
+delete(relationMember(301384472, "way", "", 381359)).
+delete(nextInRelation(143865500, 143865493, 381359)).
+delete(relationMember(143865500, "way", "", 381359)).
+delete(nextInRelation(143865493, 143865498, 381359)).
+delete(relationMember(143865493, "way", "", 381359)).
+delete(nextInRelation(143865498, 143865497, 381359)).
+delete(relationMember(143865498, "way", "", 381359)).
+delete(nextInRelation(143865497, 143865495, 381359)).
+delete(relationMember(143865497, "way", "", 381359)).
+delete(nextInRelation(143865495, 291535280, 381359)).
+delete(relationMember(143865495, "way", "", 381359)).
+delete(nextInRelation(291535280, 302939429, 381359)).
+delete(relationMember(291535280, "way", "", 381359)).
+delete(nextInRelation(302939429, 238693109, 381359)).
+delete(relationMember(302939429, "way", "", 381359)).
+delete(relationMember(238693109, "way", "", 381359)).
+add(position(3121993484)).
+add(node(536792062)).
+add(nodeTag(536792062, "bus", "yes")).
+add(nodeTag(536792062, "wheelchair", "yes")).
+add(nodeTag(536792062, "network:short", "DING")).
+add(nodeTag(536792062, "shelter", "yes")).
+add(nodeTag(536792062, "bench", "yes")).
+add(nodeTag(536792062, "bin", "yes")).
+add(nodeTag(536792062, "uic_ref", "801320")).
+add(nodeTag(536792062, "network:wikipedia", "de:Donau-Iller-Nahverkehrsverbund")).
+add(nodeTag(536792062, "public_transport", "platform")).
+add(nodeTag(536792062, "network", "Donau-Iller-Nahverkehrsverbund")).
+add(nodeTag(536792062, "network:guid", "DE-BW-DING")).
+add(nodeTag(536792062, "tactile_paving", "yes")).
+add(nodeTag(536792062, "lit", "yes")).
+add(nodeTag(536792062, "name", "Steinerne Bruecke")).
+add(nodeTag(536792062, "network:wikidata", "Q315403")).
+add(nodeTag(536792062, "highway", "bus_stop")).
+add(node(1037545242)).
+add(node(1987381295)).
+add(nodeTag(1987381295, "addr:housenumber", "52")).
+add(nodeTag(1987381295, "addr:country", "DE")).
+add(nodeTag(1987381295, "addr:street", "Neue Strasse")).
+add(nodeTag(1987381295, "addr:postcode", "89073")).
+add(nodeTag(1987381295, "addr:city", "Ulm")).
+add(node(2382111706)).
+add(node(2382111712)).
+add(node(2442950085)).
+add(nodeTag(2442950085, "addr:housenumber", "50")).
+add(nodeTag(2442950085, "addr:country", "DE")).
+add(nodeTag(2442950085, "addr:street", "Neue Strasse")).
+add(nodeTag(2442950085, "addr:postcode", "89073")).
+add(nodeTag(2442950085, "addr:city", "Ulm")).
+add(node(2495246834)).
+add(node(2505566079)).
+add(node(2521649854)).
+add(node(3121993478)).
+add(node(3121993479)).
+add(node(3121993484)).
+add(node(3247838737)).
+add(node(3247838739)).
+add(node(4443918925)).
+add(node(4443918926)).
+add(node(4443918927)).
+add(node(4443918930)).
+add(node(4443918934)).
+add(node(4443918940)).
+add(node(5621690502)).
+add(node(6263471325)).
+add(nodeTag(6263471325, "bus", "yes")).
+add(nodeTag(6263471325, "name", "Steinerne Bruecke")).
+add(nodeTag(6263471325, "public_transport", "stop_position")).
+add(node(6694383582)).
+add(node(6694412018)).
+add(node(6694412020)).
+add(node(6694426263)).
+add(node(6694439692)).
+add(node(6694439693)).
+add(node(8593224578)).
+add(nodeTag(8593224578, "advertising", "column")).
+add(node(8593224579)).
+add(nodeTag(8593224579, "natural", "tree")).
+add(node(8593224585)).
+add(node(8593224587)).
+add(node(8593224588)).
+add(node(8593224591)).
+add(node(11171163604)).
+add(nodeTag(11171163604, "payment:notes", "yes")).
+add(nodeTag(11171163604, "ref", "9017")).
+add(nodeTag(11171163604, "payment:girocard", "yes")).
+add(nodeTag(11171163604, "amenity", "vending_machine")).
+add(nodeTag(11171163604, "vending", "public_transport_tickets")).
+add(nodeTag(11171163604, "payment:coins", "yes")).
+add(nodeTag(11171163604, "operator", "SWU")).
+add(node(11173445164)).
+add(node(11173445165)).
+add(node(11173445166)).
+add(node(11173445167)).
+add(node(11299575913)).
+add(nodeTag(11299575913, "addr:housenumber", "52")).
+add(nodeTag(11299575913, "website", "https://www.trekbikes.com/de/de_DE/retail/ulm/")).
+add(nodeTag(11299575913, "shop", "bicycle")).
+add(nodeTag(11299575913, "phone", "+49 731 29879832")).
+add(nodeTag(11299575913, "check_date", "2023-10-30")).
+add(nodeTag(11299575913, "name", "Trek Bicycle Ulm")).
+add(nodeTag(11299575913, "opening_hours", "Tu-Fr 11:00-19:00; Sa 10:00-16:00")).
+add(nodeTag(11299575913, "addr:street", "Neue Strasse")).
+add(nodeTag(11299575913, "addr:postcode", "89073")).
+add(nodeTag(11299575913, "brand", "Trek")).
+add(nodeTag(11299575913, "addr:city", "Ulm")).
+add(way(89471129)).
+add(wayTag(89471129, "roof:shape", "gabled")).
+add(wayTag(89471129, "building:levels", "3")).
+add(wayTag(89471129, "roof:colour", "red")).
+add(wayTag(89471129, "building:colour", "red")).
+add(wayTag(89471129, "roof:levels", "2")).
+add(wayTag(89471129, "building", "office")).
+add(nextInWay(1037545212, 1037545247, 89471129)).
+add(nextInWay(1037545247, 1037545242, 89471129)).
+add(nextInWay(1037545242, 1037545234, 89471129)).
+add(nextInWay(1037545234, 6693229550, 89471129)).
+add(nextInWay(6693229550, 1037545212, 89471129)).
+add(way(229643030)).
+add(wayTag(229643030, "roof:shape", "gabled")).
+add(wayTag(229643030, "building:levels", "4")).
+add(wayTag(229643030, "roof:colour", "red")).
+add(wayTag(229643030, "building:colour", "white")).
+add(wayTag(229643030, "roof:levels", "1")).
+add(wayTag(229643030, "building", "yes")).
+add(nextInWay(2382111706, 1439662098, 229643030)).
+add(nextInWay(1439662098, 1439662141, 229643030)).
+add(nextInWay(1439662141, 6694439690, 229643030)).
+add(nextInWay(6694439690, 6694426272, 229643030)).
+add(nextInWay(6694426272, 6694383581, 229643030)).
+add(nextInWay(6694383581, 6694439692, 229643030)).
+add(nextInWay(6694439692, 2382111706, 229643030)).
+add(way(242047942)).
+add(wayTag(242047942, "bus", "yes")).
+add(wayTag(242047942, "psv", "official")).
+add(wayTag(242047942, "smoothness", "excellent")).
+add(wayTag(242047942, "surface", "asphalt")).
+add(wayTag(242047942, "lit", "yes")).
+add(wayTag(242047942, "maxspeed", "20")).
+add(wayTag(242047942, "description", "Busspur Neue Strasse")).
+add(wayTag(242047942, "highway", "service")).
+add(wayTag(242047942, "vehicle", "no")).
+add(nextInWay(2521649854, 6263471325, 242047942)).
+add(nextInWay(6263471325, 2505566079, 242047942)).
+add(nextInWay(2505566079, 4443918926, 242047942)).
+add(nextInWay(4443918926, 6263471324, 242047942)).
+add(nextInWay(6263471324, 2505566083, 242047942)).
+add(way(244895019)).
+add(wayTag(244895019, "smoothness", "good")).
+add(wayTag(244895019, "tourist_bus", "yes")).
+add(wayTag(244895019, "motor_vehicle", "no")).
+add(wayTag(244895019, "surface", "paving_stones")).
+add(wayTag(244895019, "highway", "service")).
+add(wayTag(244895019, "oneway", "yes")).
+add(nextInWay(2521649858, 2521649857, 244895019)).
+add(nextInWay(2521649857, 2521649856, 244895019)).
+add(nextInWay(2521649856, 2521649855, 244895019)).
+add(nextInWay(2521649855, 6722683748, 244895019)).
+add(nextInWay(6722683748, 2521649854, 244895019)).
+add(way(307141038)).
+add(wayTag(307141038, "parking", "street_side")).
+add(wayTag(307141038, "access", "yes")).
+add(wayTag(307141038, "surface", "paving_stones")).
+add(wayTag(307141038, "amenity", "parking")).
+add(wayTag(307141038, "fee", "yes")).
+add(wayTag(307141038, "capacity:disabled", "3")).
+add(nextInWay(2495246849, 3121993479, 307141038)).
+add(nextInWay(3121993479, 3121993478, 307141038)).
+add(nextInWay(3121993478, 3121993484, 307141038)).
+add(nextInWay(3121993484, 2495246849, 307141038)).
+add(way(318380435)).
+add(wayTag(318380435, "highway", "footway")).
+add(nextInWay(3121993481, 3247838737, 318380435)).
+add(nextInWay(3247838737, 3247838739, 318380435)).
+add(nextInWay(3247838739, 8593224587, 318380435)).
+add(nextInWay(8593224587, 8593224585, 318380435)).
+add(nextInWay(8593224585, 3247838740, 318380435)).
+add(nextInWay(3247838740, 3247838738, 318380435)).
+add(nextInWay(3247838738, 8464523867, 318380435)).
+add(way(328962563)).
+add(wayTag(328962563, "surface", "asphalt")).
+add(wayTag(328962563, "lcn", "yes")).
+add(wayTag(328962563, "lit", "yes")).
+add(wayTag(328962563, "turn:lanes:forward", "left|through;slight_right;right")).
+add(wayTag(328962563, "lanes", "3")).
+add(wayTag(328962563, "lanes:forward", "2")).
+add(wayTag(328962563, "maxspeed", "50")).
+add(wayTag(328962563, "name", "Neue Strasse")).
+add(wayTag(328962563, "lanes:backward", "1")).
+add(wayTag(328962563, "parking:both", "no")).
+add(wayTag(328962563, "highway", "tertiary")).
+add(wayTag(328962563, "source:maxspeed", "DE:urban")).
+add(nextInWay(3121993484, 2495246849, 328962563)).
+add(nextInWay(2495246849, 9261024072, 328962563)).
+add(nextInWay(9261024072, 2212917729, 328962563)).
+add(way(439208430)).
+add(wayTag(439208430, "surface", "paving_stones")).
+add(wayTag(439208430, "lit", "yes")).
+add(wayTag(439208430, "highway", "path")).
+add(wayTag(439208430, "foot", "designated")).
+add(nextInWay(2521676630, 4139241289, 439208430)).
+add(nextInWay(4139241289, 9261024069, 439208430)).
+add(nextInWay(9261024069, 6722683748, 439208430)).
+add(nextInWay(6722683748, 4139241290, 439208430)).
+add(nextInWay(4139241290, 4447648116, 439208430)).
+add(nextInWay(4447648116, 4139241302, 439208430)).
+add(way(447217493)).
+add(wayTag(447217493, "shelter_type", "public_transport")).
+add(wayTag(447217493, "amenity", "shelter")).
+add(wayTag(447217493, "building", "roof")).
+add(nextInWay(4443918930, 4443918925, 447217493)).
+add(nextInWay(4443918925, 4443918927, 447217493)).
+add(nextInWay(4443918927, 4443918934, 447217493)).
+add(nextInWay(4443918934, 4443918930, 447217493)).
+add(way(447217496)).
+add(wayTag(447217496, "surface", "asphalt")).
+add(wayTag(447217496, "highway", "service")).
+add(nextInWay(5621690500, 5621690501, 447217496)).
+add(nextInWay(5621690501, 5621690502, 447217496)).
+add(nextInWay(5621690502, 4443918926, 447217496)).
+add(nextInWay(4443918926, 4139241290, 447217496)).
+add(nextInWay(4139241290, 4443918931, 447217496)).
+add(nextInWay(4443918931, 4443918923, 447217496)).
+add(way(447217497)).
+add(wayTag(447217497, "wheelchair", "yes")).
+add(wayTag(447217497, "tactile_paving", "yes")).
+add(wayTag(447217497, "shelter", "yes")).
+add(wayTag(447217497, "bench", "yes")).
+add(wayTag(447217497, "bin", "yes")).
+add(wayTag(447217497, "lit", "yes")).
+add(wayTag(447217497, "uic_ref", "801320")).
+add(wayTag(447217497, "name", "Steinerne Bruecke")).
+add(wayTag(447217497, "public_transport", "platform")).
+add(wayTag(447217497, "highway", "platform")).
+add(wayTag(447217497, "start_date", "2006")).
+add(nextInWay(4443918940, 536792062, 447217497)).
+add(nextInWay(536792062, 4443918924, 447217497)).
+add(way(452730858)).
+add(wayTag(452730858, "bus", "yes")).
+add(wayTag(452730858, "psv", "official")).
+add(wayTag(452730858, "tourist_bus", "yes")).
+add(wayTag(452730858, "surface", "paving_stones")).
+add(wayTag(452730858, "maxspeed", "20")).
+add(wayTag(452730858, "description", "Busspur Neue Strasse")).
+add(wayTag(452730858, "highway", "service")).
+add(wayTag(452730858, "vehicle", "no")).
+add(nextInWay(29222923, 2212917712, 452730858)).
+add(nextInWay(2212917712, 9264226970, 452730858)).
+add(nextInWay(9264226970, 2521649854, 452730858)).
+add(way(711975129)).
+add(wayTag(711975129, "building:levels", "1")).
+add(wayTag(711975129, "building", "yes")).
+add(nextInWay(2382111712, 6694412020, 711975129)).
+add(nextInWay(6694412020, 6694412018, 711975129)).
+add(nextInWay(6694412018, 6694412019, 711975129)).
+add(nextInWay(6694412019, 5868253506, 711975129)).
+add(nextInWay(5868253506, 6694426270, 711975129)).
+add(nextInWay(6694426270, 6694412017, 711975129)).
+add(nextInWay(6694412017, 6694412016, 711975129)).
+add(nextInWay(6694412016, 2382111735, 711975129)).
+add(nextInWay(2382111735, 1439662107, 711975129)).
+add(nextInWay(1439662107, 2382111729, 711975129)).
+add(nextInWay(2382111729, 1439662134, 711975129)).
+add(nextInWay(1439662134, 2382111712, 711975129)).
+add(way(711975135)).
+add(wayTag(711975135, "building:levels", "1")).
+add(wayTag(711975135, "building", "yes")).
+add(nextInWay(6694439693, 6694439692, 711975135)).
+add(nextInWay(6694439692, 6694383581, 711975135)).
+add(nextInWay(6694383581, 6694426272, 711975135)).
+add(nextInWay(6694426272, 2382111729, 711975135)).
+add(nextInWay(2382111729, 1439662134, 711975135)).
+add(nextInWay(1439662134, 2382111712, 711975135)).
+add(nextInWay(2382111712, 6694439693, 711975135)).
+add(way(711975138)).
+add(wayTag(711975138, "building:levels", "1")).
+add(wayTag(711975138, "building", "retail")).
+add(nextInWay(6694426271, 6694426264, 711975138)).
+add(nextInWay(6694426264, 6694426263, 711975138)).
+add(nextInWay(6694426263, 6694383582, 711975138)).
+add(nextInWay(6694383582, 6694426271, 711975138)).
+add(way(925968802)).
+add(wayTag(925968802, "building", "roof")).
+add(wayTag(925968802, "layer", "1")).
+add(nextInWay(8593224583, 8593224586, 925968802)).
+add(nextInWay(8593224586, 6694383582, 925968802)).
+add(nextInWay(6694383582, 6694426271, 925968802)).
+add(nextInWay(6694426271, 8593224589, 925968802)).
+add(nextInWay(8593224589, 8593224584, 925968802)).
+add(nextInWay(8593224584, 8593224583, 925968802)).
+add(way(925968803)).
+add(wayTag(925968803, "building", "roof")).
+add(wayTag(925968803, "layer", "1")).
+add(nextInWay(6694426263, 8593224588, 925968803)).
+add(nextInWay(8593224588, 6694412020, 925968803)).
+add(nextInWay(6694412020, 6694412018, 925968803)).
+add(nextInWay(6694412018, 6694412019, 925968803)).
+add(nextInWay(6694412019, 8593224590, 925968803)).
+add(nextInWay(8593224590, 6694426264, 925968803)).
+add(nextInWay(6694426264, 6694426263, 925968803)).
+add(way(925968804)).
+add(wayTag(925968804, "surface", "paving_stones")).
+add(wayTag(925968804, "highway", "footway")).
+add(nextInWay(8593224585, 8593224586, 925968804)).
+add(way(925968805)).
+add(wayTag(925968805, "highway", "footway")).
+add(nextInWay(8593224587, 8593224588, 925968805)).
+add(way(925968807)).
+add(wayTag(925968807, "covered", "yes")).
+add(wayTag(925968807, "highway", "footway")).
+add(nextInWay(8593224588, 8593224591, 925968807)).
+add(nextInWay(8593224591, 8593224590, 925968807)).
+add(way(925968808)).
+add(wayTag(925968808, "covered", "yes")).
+add(wayTag(925968808, "highway", "footway")).
+add(nextInWay(8593224591, 8593224592, 925968808)).
+add(way(1205691774)).
+add(wayTag(1205691774, "shelter_type", "public_transport")).
+add(wayTag(1205691774, "amenity", "shelter")).
+add(wayTag(1205691774, "building", "roof")).
+add(nextInWay(11173445164, 11173445165, 1205691774)).
+add(nextInWay(11173445165, 11173445166, 1205691774)).
+add(nextInWay(11173445166, 11173445167, 1205691774)).
+add(nextInWay(11173445167, 11173445164, 1205691774)).

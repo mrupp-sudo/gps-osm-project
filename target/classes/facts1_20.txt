@@ -1,0 +1,446 @@
+delete(position(1003104526)).
+delete(node(1003104526)).
+delete(nodeTag(1003104526, "highway", "traffic_signals")).
+delete(node(1311840595)).
+delete(node(1834034850)).
+delete(node(2495246836)).
+delete(node(2497871538)).
+delete(node(2497871547)).
+delete(node(2697921083)).
+delete(node(2697921084)).
+delete(node(3220209416)).
+delete(node(3220209426)).
+delete(node(3802163053)).
+delete(nodeTag(3802163053, "addr:housenumber", "60")).
+delete(nodeTag(3802163053, "addr:country", "DE")).
+delete(nodeTag(3802163053, "addr:street", "Neue Strasse")).
+delete(nodeTag(3802163053, "addr:postcode", "89073")).
+delete(nodeTag(3802163053, "addr:city", "Ulm")).
+delete(node(3948690964)).
+delete(node(3948690965)).
+delete(node(3948690966)).
+delete(node(3948690968)).
+delete(node(3982167745)).
+delete(node(4139241295)).
+delete(node(12050051648)).
+delete(nodeTag(12050051648, "addr:housenumber", "60")).
+delete(nodeTag(12050051648, "phone", "+49 7 31 93 80 69 0-0")).
+delete(nodeTag(12050051648, "addr:country", "DE")).
+delete(nodeTag(12050051648, "healthcare:speciality", "behavior")).
+delete(nodeTag(12050051648, "name", "Psychotherapeutische Ambulanz der AVM gGmbH")).
+delete(nodeTag(12050051648, "addr:street", "Neue Strasse")).
+delete(nodeTag(12050051648, "addr:postcode", "89073")).
+delete(nodeTag(12050051648, "email", "ulm@psychotherapie-ambulanzen.de")).
+delete(nodeTag(12050051648, "addr:city", "Ulm")).
+delete(nodeTag(12050051648, "healthcare", "psychotherapist")).
+delete(way(116350597)).
+delete(wayTag(116350597, "motor_vehicle", "private")).
+delete(wayTag(116350597, "surface", "paving_stones")).
+delete(wayTag(116350597, "highway", "service")).
+delete(nextInWay(2697921084, 2495246836, 116350597)).
+delete(nextInWay(2495246836, 4139241295, 116350597)).
+delete(nextInWay(4139241295, 1311840630, 116350597)).
+delete(way(172503028)).
+delete(wayTag(172503028, "roof:ridge", "yes")).
+delete(nextInWay(1834034850, 1834034857, 172503028)).
+delete(nextInWay(1834034857, 1311840601, 172503028)).
+delete(way(226362225)).
+delete(nextInWay(1311840591, 1834034863, 226362225)).
+delete(nextInWay(1834034863, 1311840617, 226362225)).
+delete(nextInWay(1311840617, 1311840602, 226362225)).
+delete(nextInWay(1311840602, 1834034865, 226362225)).
+delete(nextInWay(1834034865, 1311840601, 226362225)).
+delete(nextInWay(1311840601, 9443797523, 226362225)).
+delete(nextInWay(9443797523, 1311840595, 226362225)).
+delete(nextInWay(1311840595, 1834034850, 226362225)).
+delete(nextInWay(1834034850, 1834034861, 226362225)).
+delete(nextInWay(1834034861, 1311840630, 226362225)).
+delete(nextInWay(1311840630, 1834034859, 226362225)).
+delete(nextInWay(1834034859, 6692102881, 226362225)).
+delete(nextInWay(6692102881, 1834034854, 226362225)).
+delete(nextInWay(1834034854, 1311840612, 226362225)).
+delete(nextInWay(1311840612, 1311840589, 226362225)).
+delete(nextInWay(1311840589, 1311840591, 226362225)).
+delete(way(242280612)).
+delete(wayTag(242280612, "smoothness", "excellent")).
+delete(wayTag(242280612, "surface", "asphalt")).
+delete(wayTag(242280612, "highway", "service")).
+delete(wayTag(242280612, "oneway", "yes")).
+delete(nextInWay(2497871547, 2497871538, 242280612)).
+delete(nextInWay(2497871538, 2497871537, 242280612)).
+delete(way(245503037)).
+delete(wayTag(245503037, "cycleway:left:traffic_sign", "DE:340")).
+delete(wayTag(245503037, "surface", "asphalt")).
+delete(wayTag(245503037, "lcn", "yes")).
+delete(wayTag(245503037, "cycleway:left:lane", "advisory")).
+delete(wayTag(245503037, "maxspeed", "50")).
+delete(wayTag(245503037, "name", "Neue Strasse")).
+delete(wayTag(245503037, "parking:both", "no")).
+delete(wayTag(245503037, "highway", "tertiary")).
+delete(wayTag(245503037, "cycleway:left", "lane")).
+delete(nextInWay(280042456, 1255608204, 245503037)).
+delete(nextInWay(1255608204, 2495246915, 245503037)).
+delete(nextInWay(2495246915, 2495246913, 245503037)).
+delete(nextInWay(2495246913, 2497871547, 245503037)).
+delete(way(264127760)).
+delete(wayTag(264127760, "surface", "asphalt")).
+delete(wayTag(264127760, "highway", "footway")).
+delete(nextInWay(1003104526, 2697921083, 264127760)).
+delete(way(275383175)).
+delete(wayTag(275383175, "maxheight", "2")).
+delete(wayTag(275383175, "surface", "concrete")).
+delete(wayTag(275383175, "service", "parking_aisle")).
+delete(wayTag(275383175, "maxspeed", "20")).
+delete(wayTag(275383175, "description", "Zufahrt West Tiefgarage 'Am Rathaus'")).
+delete(wayTag(275383175, "highway", "service")).
+delete(wayTag(275383175, "layer", "-1")).
+delete(wayTag(275383175, "oneway", "yes")).
+delete(wayTag(275383175, "tunnel", "yes")).
+delete(nextInWay(2497871543, 2800161469, 275383175)).
+delete(nextInWay(2800161469, 2800161470, 275383175)).
+delete(nextInWay(2800161470, 2497871536, 275383175)).
+delete(way(315894197)).
+delete(wayTag(315894197, "building:levels", "6")).
+delete(wayTag(315894197, "roof:levels", "0")).
+delete(wayTag(315894197, "building", "office")).
+delete(wayTag(315894197, "start_date", "2015")).
+delete(nextInWay(3220209426, 3948690966, 315894197)).
+delete(nextInWay(3948690966, 3948690968, 315894197)).
+delete(nextInWay(3948690968, 6693436405, 315894197)).
+delete(nextInWay(6693436405, 6693436406, 315894197)).
+delete(nextInWay(6693436406, 3220209403, 315894197)).
+delete(nextInWay(3220209403, 1554750359, 315894197)).
+delete(nextInWay(1554750359, 1554750360, 315894197)).
+delete(nextInWay(1554750360, 7244562742, 315894197)).
+delete(nextInWay(7244562742, 1554750356, 315894197)).
+delete(nextInWay(1554750356, 1554750361, 315894197)).
+delete(nextInWay(1554750361, 6693437435, 315894197)).
+delete(nextInWay(6693437435, 6693437433, 315894197)).
+delete(nextInWay(6693437433, 6693437434, 315894197)).
+delete(nextInWay(6693437434, 6693436404, 315894197)).
+delete(nextInWay(6693436404, 3220209426, 315894197)).
+delete(way(315894201)).
+delete(wayTag(315894201, "barrier", "wall")).
+delete(wayTag(315894201, "material", "brick")).
+delete(nextInWay(1311840595, 3220209408, 315894201)).
+delete(nextInWay(3220209408, 11173445170, 315894201)).
+delete(nextInWay(11173445170, 11173445172, 315894201)).
+delete(nextInWay(11173445172, 11173445173, 315894201)).
+delete(nextInWay(11173445173, 11173445171, 315894201)).
+delete(nextInWay(11173445171, 3220209413, 315894201)).
+delete(nextInWay(3220209413, 3220209409, 315894201)).
+delete(way(391644007)).
+delete(wayTag(391644007, "building", "yes")).
+delete(wayTag(391644007, "start_date", "2015")).
+delete(nextInWay(3948690965, 3948690964, 391644007)).
+delete(nextInWay(3948690964, 3948690968, 391644007)).
+delete(nextInWay(3948690968, 3948690966, 391644007)).
+delete(nextInWay(3948690966, 3948690965, 391644007)).
+delete(way(395308125)).
+delete(wayTag(395308125, "surface", "paving_stones")).
+delete(wayTag(395308125, "highway", "footway")).
+delete(nextInWay(1003104526, 3982167745, 395308125)).
+delete(way(395308126)).
+delete(wayTag(395308126, "incline", "up")).
+delete(wayTag(395308126, "highway", "steps")).
+delete(nextInWay(3982167745, 3982167746, 395308126)).
+delete(way(432598663)).
+delete(wayTag(432598663, "bus", "yes")).
+delete(wayTag(432598663, "note", "'Zufahrt Polizei frei'")).
+delete(wayTag(432598663, "psv", "official")).
+delete(wayTag(432598663, "surface", "concrete")).
+delete(wayTag(432598663, "maxspeed", "20")).
+delete(wayTag(432598663, "description", "Busspur Neue Strasse")).
+delete(wayTag(432598663, "highway", "service")).
+delete(wayTag(432598663, "vehicle", "destination")).
+delete(nextInWay(2495246836, 2697921083, 432598663)).
+delete(nextInWay(2697921083, 2526961625, 432598663)).
+delete(nextInWay(2526961625, 2495246883, 432598663)).
+delete(nextInWay(2495246883, 2495262423, 432598663)).
+delete(relation(3009440)).
+delete(relationTag(3009440, "addr:housenumber", "47")).
+delete(relationTag(3009440, "name", "Neuer Bau")).
+delete(relationTag(3009440, "tourism", "attraction")).
+delete(relationTag(3009440, "addr:street", "Muensterplatz")).
+delete(relationTag(3009440, "type", "multipolygon")).
+delete(relationTag(3009440, "addr:postcode", "89073")).
+delete(relationTag(3009440, "wikidata", "Q1980105")).
+delete(relationTag(3009440, "building", "yes")).
+delete(relationTag(3009440, "addr:city", "Ulm")).
+delete(nextInRelation(226362225, 226362226, 3009440)).
+delete(relationMember(226362225, "way", "outer", 3009440)).
+delete(relationMember(226362226, "way", "inner", 3009440)).
+delete(relation(17252984)).
+delete(relationTag(17252984, "restriction", "no_left_turn")).
+delete(relationTag(17252984, "type", "restriction")).
+delete(nextInRelation(245503037, 2497871547, 17252984)).
+delete(relationMember(245503037, "way", "from", 17252984)).
+delete(nextInRelation(2497871547, 242280612, 17252984)).
+delete(relationMember(2497871547, "node", "via", 17252984)).
+delete(relationMember(242280612, "way", "to", 17252984)).
+
+add(position(5064062687)).
+add(node(667485094)).
+add(node(1554750362)).
+add(node(2495246838)).
+add(node(2495262401)).
+add(node(2496115777)).
+add(node(2496115787)).
+add(node(2496125591)).
+add(node(2496125616)).
+add(node(2496125628)).
+add(node(2497871530)).
+add(node(2505566077)).
+add(node(2505566078)).
+add(node(3508850693)).
+add(node(3508850793)).
+add(node(3508850794)).
+add(node(4139241293)).
+add(node(4139241294)).
+add(node(5064062687)).
+add(node(5064062688)).
+add(node(6292122418)).
+add(nodeTag(6292122418, "highway", "street_lamp")).
+add(node(6292122429)).
+add(nodeTag(6292122429, "highway", "street_lamp")).
+add(node(6301478962)).
+add(nodeTag(6301478962, "amenity", "waste_basket")).
+add(node(6301478975)).
+add(nodeTag(6301478975, "highway", "street_lamp")).
+add(node(11176494487)).
+add(way(107458059)).
+add(wayTag(107458059, "leisure", "park")).
+add(nextInWay(667485081, 667485083, 107458059)).
+add(nextInWay(667485083, 667485085, 107458059)).
+add(nextInWay(667485085, 667485087, 107458059)).
+add(nextInWay(667485087, 667485089, 107458059)).
+add(nextInWay(667485089, 667485093, 107458059)).
+add(nextInWay(667485093, 667485094, 107458059)).
+add(nextInWay(667485094, 667485096, 107458059)).
+add(nextInWay(667485096, 667485098, 107458059)).
+add(nextInWay(667485098, 1234939507, 107458059)).
+add(nextInWay(1234939507, 1234939510, 107458059)).
+add(nextInWay(1234939510, 1239245415, 107458059)).
+add(nextInWay(1239245415, 1239245427, 107458059)).
+add(nextInWay(1239245427, 1239245424, 107458059)).
+add(nextInWay(1239245424, 1239245417, 107458059)).
+add(nextInWay(1239245417, 2487947259, 107458059)).
+add(nextInWay(2487947259, 1234939493, 107458059)).
+add(nextInWay(1234939493, 667485104, 107458059)).
+add(nextInWay(667485104, 667485105, 107458059)).
+add(nextInWay(667485105, 667485081, 107458059)).
+add(way(242045614)).
+add(wayTag(242045614, "bicycle", "no")).
+add(wayTag(242045614, "surface", "sett")).
+add(wayTag(242045614, "highway", "footway")).
+add(nextInWay(11176494487, 2496115777, 242045614)).
+add(nextInWay(2496115777, 2496115787, 242045614)).
+add(nextInWay(2496115787, 2496115780, 242045614)).
+add(nextInWay(2496115780, 2496115785, 242045614)).
+add(nextInWay(2496115785, 2496115784, 242045614)).
+add(way(242047937)).
+add(wayTag(242047937, "surface", "asphalt")).
+add(wayTag(242047937, "lane_markings", "no")).
+add(wayTag(242047937, "cycleway:left:lane", "advisory")).
+add(wayTag(242047937, "maxspeed", "50")).
+add(wayTag(242047937, "cycleway:left", "lane")).
+add(wayTag(242047937, "source:maxspeed", "DE:urban")).
+add(wayTag(242047937, "layer", "1")).
+add(wayTag(242047937, "cycleway:left:traffic_sign", "DE:340")).
+add(wayTag(242047937, "lcn", "yes")).
+add(wayTag(242047937, "name", "Neue Strasse")).
+add(wayTag(242047937, "width", "12")).
+add(wayTag(242047937, "parking:both", "no")).
+add(wayTag(242047937, "bridge", "yes")).
+add(wayTag(242047937, "maxweight:signed", "no")).
+add(wayTag(242047937, "highway", "tertiary")).
+add(nextInWay(2495246838, 5064062687, 242047937)).
+add(way(242047949)).
+add(wayTag(242047949, "waterway", "river")).
+add(wayTag(242047949, "name", "Kleine Blau")).
+add(wayTag(242047949, "width", "4")).
+add(nextInWay(2495262428, 2495262328, 242047949)).
+add(nextInWay(2495262328, 2495262351, 242047949)).
+add(nextInWay(2495262351, 2495262419, 242047949)).
+add(nextInWay(2495262419, 3121993487, 242047949)).
+add(nextInWay(3121993487, 3121993485, 242047949)).
+add(nextInWay(3121993485, 2495262480, 242047949)).
+add(nextInWay(2495262480, 2495262417, 242047949)).
+add(nextInWay(2495262417, 2495262474, 242047949)).
+add(nextInWay(2495262474, 2495262478, 242047949)).
+add(nextInWay(2495262478, 2496115778, 242047949)).
+add(nextInWay(2496115778, 2495262320, 242047949)).
+add(nextInWay(2495262320, 2495262368, 242047949)).
+add(nextInWay(2495262368, 2495262401, 242047949)).
+add(nextInWay(2495262401, 3613457535, 242047949)).
+add(nextInWay(3613457535, 3613457532, 242047949)).
+add(nextInWay(3613457532, 2495262409, 242047949)).
+add(nextInWay(2495262409, 6693614924, 242047949)).
+add(nextInWay(6693614924, 2495262486, 242047949)).
+add(nextInWay(2495262486, 2495262450, 242047949)).
+add(nextInWay(2495262450, 2495262359, 242047949)).
+add(nextInWay(2495262359, 2495262350, 242047949)).
+add(nextInWay(2495262350, 6693611266, 242047949)).
+add(nextInWay(6693611266, 2495262349, 242047949)).
+add(nextInWay(2495262349, 2495262505, 242047949)).
+add(nextInWay(2495262505, 2495262421, 242047949)).
+add(nextInWay(2495262421, 2495262448, 242047949)).
+add(nextInWay(2495262448, 2495262466, 242047949)).
+add(nextInWay(2495262466, 312379211, 242047949)).
+add(way(242047951)).
+add(wayTag(242047951, "bicycle", "no")).
+add(wayTag(242047951, "surface", "sett")).
+add(wayTag(242047951, "highway", "footway")).
+add(nextInWay(312379233, 2496125589, 242047951)).
+add(nextInWay(2496125589, 2496125621, 242047951)).
+add(nextInWay(2496125621, 2496125616, 242047951)).
+add(nextInWay(2496125616, 2496125628, 242047951)).
+add(nextInWay(2496125628, 2496115777, 242047951)).
+add(nextInWay(2496115777, 3508850693, 242047951)).
+add(way(242047953)).
+add(wayTag(242047953, "surface", "asphalt")).
+add(wayTag(242047953, "turn:lanes:forward", "through|merge_to_left")).
+add(wayTag(242047953, "cycleway:left:lane", "advisory")).
+add(wayTag(242047953, "lanes:forward", "2")).
+add(wayTag(242047953, "maxspeed", "50")).
+add(wayTag(242047953, "lanes:backward", "1")).
+add(wayTag(242047953, "cycleway:left", "lane")).
+add(wayTag(242047953, "source:maxspeed", "DE:urban")).
+add(wayTag(242047953, "cycleway:left:traffic_sign", "DE:340")).
+add(wayTag(242047953, "lcn", "yes")).
+add(wayTag(242047953, "lanes", "3")).
+add(wayTag(242047953, "name", "Neue Strasse")).
+add(wayTag(242047953, "parking:both", "no")).
+add(wayTag(242047953, "highway", "tertiary")).
+add(nextInWay(2496125591, 2497871534, 242047953)).
+add(way(242280613)).
+add(wayTag(242280613, "surface", "asphalt")).
+add(wayTag(242280613, "bridge", "yes")).
+add(wayTag(242280613, "maxweight:signed", "no")).
+add(wayTag(242280613, "highway", "service")).
+add(wayTag(242280613, "layer", "1")).
+add(wayTag(242280613, "oneway", "yes")).
+add(nextInWay(2497871530, 5064062688, 242280613)).
+add(way(243123989)).
+add(wayTag(243123989, "bus", "yes")).
+add(wayTag(243123989, "psv", "official")).
+add(wayTag(243123989, "surface", "asphalt")).
+add(wayTag(243123989, "maxspeed", "20")).
+add(wayTag(243123989, "description", "Busspur Neue Strasse")).
+add(wayTag(243123989, "bridge", "yes")).
+add(wayTag(243123989, "highway", "service")).
+add(wayTag(243123989, "layer", "1")).
+add(wayTag(243123989, "vehicle", "no")).
+add(nextInWay(2505566078, 2505566077, 243123989)).
+add(way(243123991)).
+add(wayTag(243123991, "bus", "yes")).
+add(wayTag(243123991, "psv", "official")).
+add(wayTag(243123991, "surface", "asphalt")).
+add(wayTag(243123991, "maxspeed", "20")).
+add(wayTag(243123991, "description", "Busspur Neue Strasse")).
+add(wayTag(243123991, "highway", "service")).
+add(wayTag(243123991, "vehicle", "no")).
+add(nextInWay(2505566081, 2496115758, 243123991)).
+add(nextInWay(2496115758, 2505566080, 243123991)).
+add(nextInWay(2505566080, 2505566078, 243123991)).
+add(way(275383171)).
+add(wayTag(275383171, "surface", "asphalt")).
+add(wayTag(275383171, "highway", "service")).
+add(wayTag(275383171, "oneway", "yes")).
+add(nextInWay(2800161468, 2497871530, 275383171)).
+add(way(344127674)).
+add(wayTag(344127674, "bicycle", "no")).
+add(wayTag(344127674, "surface", "sett")).
+add(wayTag(344127674, "highway", "footway")).
+add(nextInWay(3508850793, 3508850794, 344127674)).
+add(way(344127675)).
+add(wayTag(344127675, "bicycle", "no")).
+add(wayTag(344127675, "surface", "wood")).
+add(wayTag(344127675, "bridge", "yes")).
+add(wayTag(344127675, "highway", "footway")).
+add(wayTag(344127675, "layer", "1")).
+add(nextInWay(3508850693, 3508850793, 344127675)).
+add(way(412514133)).
+add(wayTag(412514133, "surface", "asphalt")).
+add(wayTag(412514133, "bridge", "yes")).
+add(wayTag(412514133, "highway", "path")).
+add(wayTag(412514133, "foot", "designated")).
+add(wayTag(412514133, "layer", "1")).
+add(nextInWay(4139241293, 4139241294, 412514133)).
+add(way(412514148)).
+add(wayTag(412514148, "smoothness", "excellent")).
+add(wayTag(412514148, "surface", "paving_stones")).
+add(wayTag(412514148, "highway", "path")).
+add(wayTag(412514148, "foot", "designated")).
+add(nextInWay(4139241291, 4139241292, 412514148)).
+add(nextInWay(4139241292, 4139241293, 412514148)).
+add(way(457629595)).
+add(wayTag(457629595, "maxheight", "3")).
+add(wayTag(457629595, "surface", "sett")).
+add(wayTag(457629595, "lit", "yes")).
+add(wayTag(457629595, "name", "Lautengasse")).
+add(wayTag(457629595, "width", "12")).
+add(wayTag(457629595, "parking:both", "no")).
+add(wayTag(457629595, "highway", "living_street")).
+add(wayTag(457629595, "layer", "-1")).
+add(nextInWay(3508850794, 4537408499, 457629595)).
+add(way(519317746)).
+add(wayTag(519317746, "surface", "asphalt")).
+add(wayTag(519317746, "highway", "service")).
+add(wayTag(519317746, "oneway", "yes")).
+add(nextInWay(5064062688, 2496125591, 519317746)).
+add(way(519317749)).
+add(wayTag(519317749, "cycleway:left:traffic_sign", "DE:340")).
+add(wayTag(519317749, "surface", "asphalt")).
+add(wayTag(519317749, "lcn", "yes")).
+add(wayTag(519317749, "cycleway:left:lane", "advisory")).
+add(wayTag(519317749, "lanes", "2")).
+add(wayTag(519317749, "maxspeed", "50")).
+add(wayTag(519317749, "name", "Neue Strasse")).
+add(wayTag(519317749, "parking:both", "no")).
+add(wayTag(519317749, "highway", "tertiary")).
+add(wayTag(519317749, "cycleway:left", "lane")).
+add(wayTag(519317749, "source:maxspeed", "DE:urban")).
+add(nextInWay(5064062687, 2496125591, 519317749)).
+add(way(928723304)).
+add(wayTag(928723304, "surface", "sett")).
+add(wayTag(928723304, "lit", "yes")).
+add(wayTag(928723304, "name", "Lautengasse")).
+add(wayTag(928723304, "parking:both", "no")).
+add(wayTag(928723304, "highway", "living_street")).
+add(nextInWay(4109719092, 2495262376, 928723304)).
+add(nextInWay(2495262376, 3508850794, 928723304)).
+add(way(1206107836)).
+add(wayTag(1206107836, "bicycle", "no")).
+add(wayTag(1206107836, "surface", "asphalt")).
+add(wayTag(1206107836, "highway", "footway")).
+add(nextInWay(2496115755, 2496115767, 1206107836)).
+add(nextInWay(2496115767, 11176494487, 1206107836)).
+add(relation(381358)).
+add(relationTag(381358, "waterway", "river")).
+add(relationTag(381358, "destination", "Blau")).
+add(relationTag(381358, "name", "Kleine Blau")).
+add(relationTag(381358, "type", "waterway")).
+add(nextInRelation(28315436, 52833117, 381358)).
+add(relationMember(28315436, "way", "", 381358)).
+add(nextInRelation(52833117, 242047944, 381358)).
+add(relationMember(52833117, "way", "", 381358)).
+add(nextInRelation(242047944, 242047949, 381358)).
+add(relationMember(242047944, "way", "", 381358)).
+add(nextInRelation(242047949, 28431406, 381358)).
+add(relationMember(242047949, "way", "", 381358)).
+add(nextInRelation(28431406, 221162118, 381358)).
+add(relationMember(28431406, "way", "", 381358)).
+add(nextInRelation(221162118, 221162117, 381358)).
+add(relationMember(221162118, "way", "", 381358)).
+add(nextInRelation(221162117, 28315432, 381358)).
+add(relationMember(221162117, "way", "", 381358)).
+add(relationMember(28315432, "way", "", 381358)).
+add(relation(17252985)).
+add(relationTag(17252985, "restriction", "no_left_turn")).
+add(relationTag(17252985, "type", "restriction")).
+add(nextInRelation(519317746, 2496125591, 17252985)).
+add(relationMember(519317746, "way", "from", 17252985)).
+add(nextInRelation(2496125591, 519317749, 17252985)).
+add(relationMember(2496125591, "node", "via", 17252985)).
+add(relationMember(519317749, "way", "to", 17252985)).

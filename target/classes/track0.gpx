@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" creator="Kurviger.de" version="1.1" xmlns:gh="https://kurviger.de/public/schema/gpx/1.1">
+<metadata>
+<name>Rathaus, Ulm - Ehinger Tor, Ulm</name>
+<copyright author="OpenStreetMap contributors"/>
+<link href="https://kurviger.de">
+<text>Kurviger.de GPX</text>
+</link>
+<time>2024-07-11T11:30:15Z</time>
+</metadata>
+<trk><name>Rathaus, Ulm - Ehinger Tor, Ulm</name><trkseg>
+<trkpt lat="48.397098" lon="9.990327"><ele>480.44</ele><time>2024-07-11T11:30:54Z</time></trkpt>
+<trkpt lat="48.397055" lon="9.98948"><ele>473.45</ele><time>2024-07-11T11:31:02Z</time></trkpt>
+<trkpt lat="48.39705" lon="9.988894"><ele>473.75</ele><time>2024-07-11T11:31:09Z</time></trkpt>
+<trkpt lat="48.397079" lon="9.98818"><ele>474.49</ele><time>2024-07-11T11:31:17Z</time></trkpt>
+</trkseg>
+</trk>
+</gpx>

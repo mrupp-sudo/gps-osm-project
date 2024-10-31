@@ -1,0 +1,121 @@
+@prefix ex: <http://example.org#> .
+
+# Datalog rules in RDF
+
+[yieldSign: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'give_way')
+    -> (?x rdf:type ex:yieldSign)
+]
+
+[stopSign: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'stop')
+    -> (?x rdf:type ex:stopSign)
+]
+
+[trafficSignal: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'traffic_signals')
+    -> (?x rdf:type ex:trafficSignal)
+]
+
+[pedestrianCrossing: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'crossing') 
+    -> (?x rdf:type ex:pedestrianCrossing)
+]
+
+[tramCrossing: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'railway'), 
+    (?tag ex:value 'tram_level_crossing')
+    -> (?x rdf:type ex:tramCrossing)
+]
+
+[trainCrossing: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'railway'), 
+    (?tag ex:value 'level_crossing')
+    -> (?x rdf:type ex:trainCrossing)
+]
+
+[busStation: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag1), 
+    (?tag1 ex:key 'public_transport'), 
+    (?tag1 ex:value 'stop_position'),
+    (?x ex:nodeTag ?tag2),
+    (?tag2 ex:key 'bus'), 
+    (?tag2 ex:value 'yes'),
+    noValue(?x ex:nodeTag ex:key:tram::value:yes)
+    -> (?x rdf:type ex:busStation)
+]
+
+[tramStation: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag1), 
+    (?tag1 ex:key 'public_transport'), 
+    (?tag1 ex:value 'stop_position'), 
+    (?x ex:nodeTag ?tag2), 
+    (?tag2 ex:key 'tram'), 
+    (?tag2 ex:value 'yes'), 
+    noValue(?x ex:nodeTag ex:key:tram::value:yes)
+    -> (?x rdf:type ex:tramStation)
+]
+
+[intermodalStation: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag1), 
+    (?tag1 ex:key 'public_transport'), 
+    (?tag1 ex:value 'stop_position'), 
+    (?x ex:nodeTag ?tag2), 
+    (?tag2 ex:key 'bus'), 
+    (?tag2 ex:value 'yes'), 
+    (?x ex:nodeTag ?tag3), 
+    (?tag3 ex:key 'tram'), 
+    (?tag3 ex:value 'yes') 
+    -> (?x rdf:type ex:intermodalStation)
+]
+
+[kindergarten1: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'kindergarten') 
+    -> (?x rdf:type ex:kindergarten)
+]
+
+[kindergarten2: 
+    (?y rdf:type ex:way), 
+    (?y ex:wayTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'kindergarten') 
+    -> (?y rdf:type ex:kindergarten)
+]
+
+[school1: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'school') 
+    -> (?x rdf:type ex:school)
+]
+
+[school2: 
+    (?y rdf:type ex:way), 
+    (?y ex:wayTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'school') 
+    -> (?y rdf:type ex:school)
+]

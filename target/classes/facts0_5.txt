@@ -1,0 +1,34 @@
+add(position(1003104526)).
+add(node(1003104526)).
+add(nodeTag(1003104526, "highway", "traffic_signals")).
+add(node(3220209416)).
+add(way(264127760)).
+add(wayTag(264127760, "surface", "asphalt")).
+add(wayTag(264127760, "highway", "footway")).
+add(nextInWay(1003104526, 2697921083, 264127760)).
+add(way(315894196)).
+add(wayTag(315894196, "name", "Sparkasse Ulm")).
+add(wayTag(315894196, "building", "office")).
+add(wayTag(315894196, "start_date", "2015")).
+add(nextInWay(1554750362, 1554750366, 315894196)).
+add(nextInWay(1554750366, 3220209414, 315894196)).
+add(nextInWay(3220209414, 3948690964, 315894196)).
+add(nextInWay(3948690964, 3948690965, 315894196)).
+add(nextInWay(3948690965, 3220209416, 315894196)).
+add(nextInWay(3220209416, 1554750362, 315894196)).
+add(way(328962562)).
+add(wayTag(328962562, "surface", "asphalt")).
+add(wayTag(328962562, "lcn", "yes")).
+add(wayTag(328962562, "lanes", "2")).
+add(wayTag(328962562, "maxspeed", "50")).
+add(wayTag(328962562, "name", "Neue Strasse")).
+add(wayTag(328962562, "parking:both", "no")).
+add(wayTag(328962562, "turn:lanes:backward", "through;slight_right")).
+add(wayTag(328962562, "highway", "tertiary")).
+add(nextInWay(2497871547, 1003104526, 328962562)).
+add(nextInWay(1003104526, 2697921084, 328962562)).
+add(nextInWay(2697921084, 2495246838, 328962562)).
+add(way(395308125)).
+add(wayTag(395308125, "surface", "paving_stones")).
+add(wayTag(395308125, "highway", "footway")).
+add(nextInWay(1003104526, 3982167745, 395308125)).

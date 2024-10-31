@@ -1,0 +1,6 @@
+add(position(1)).
+add(node(1)).
+add(nodeTag(1, "highway", "give_way")).
+add(node(2)).
+add(nodeTag(2, "highway", "traffic_signals")).
+

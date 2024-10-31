@@ -1,0 +1,1489 @@
+@prefix ex: <http://example.org#> .
+
+# Datalog rules in RDF
+
+[isReachable1:
+	(?node rdf:type ex:node),
+	(?node rdf:type ex:position)
+	-> (?node rdf:type ex:isReachable)
+]
+
+[roadSegmentForward1:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'motorway'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward2:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'trunk'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward3:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'primary'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward4:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'secondary'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward5:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'tertiary'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward6:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'unclassified'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward7:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'residential'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward8:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'motorway_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward9:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'trunk_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward10:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'primary_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward11:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'secondary_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward12:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'tertiary_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward13:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'living_street'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentForward14:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'service'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:-1),
+	makeSkolem(?roadSegment, ?node1, ?node2, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node1),
+       (?roadSegment ex:rs:toNode ?node2),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward1:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'motorway'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward2:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'trunk'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward3:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'primary'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward4:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'secondary'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward5:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'tertiary'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward6:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'unclassified'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward7:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'residential'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward8:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'motorway_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward9:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'trunk_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward10:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'primary_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward11:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'secondary_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward12:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'tertiary_link'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward13:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'living_street'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[roadSegmentBackward14:
+    (?node1 rdf:type ex:node),
+    (?node2 rdf:type ex:node),
+    (?nextInWay ex:niw:fromNode ?node1),
+    (?nextInWay ex:niw:toNode ?node2),
+	(?nextInWay ex:niw:inWay ?way),
+    (?way rdf:type ex:way),
+    (?way ex:wayTag ?tag),
+	(?tag ex:key 'highway'),
+	(?tag ex:value 'service'),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:motor_vehicle::value:psv),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:no),
+    noValue(?way, ex:wayTag, ex:key:vehicle::value:private),
+    noValue(?way, ex:wayTag, ex:key:access::value:no),
+    noValue(?way, ex:wayTag, ex:key:access::value:private),
+    noValue(?way, ex:wayTag, ex:key:oneway::value:yes),
+	makeSkolem(?roadSegment, ?node2, ?node1, ?way, 'roadSegment')
+    -> (?roadSegment ex:rs:fromNode ?node2),
+       (?roadSegment ex:rs:toNode ?node1),
+	   (?roadSegment ex:rs:inWay ?way)
+]
+
+[rightTurnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_right_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?rightTurnRestriction, ?node1, ?node2, ?node3, 'rightTurnRestriction')
+    -> (?rightTurnRestriction ex:rtr:fromNode ?node1),
+       (?rightTurnRestriction ex:rtr:intermediateNode ?node2),
+	   (?rightTurnRestriction ex:rtr:toNode ?node3)
+]
+
+[rightTurnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_right_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?rightTurnRestriction, ?node1, ?node2, ?node3, 'rightTurnRestriction')
+    -> (?rightTurnRestriction ex:rtr:fromNode ?node1),
+       (?rightTurnRestriction ex:rtr:intermediateNode ?node2),
+	   (?rightTurnRestriction ex:rtr:toNode ?node3)
+]
+
+[onlyRightTurnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_right_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?onlyRightTurnRestriction, ?node1, ?node2, ?node3, 'onlyRightTurnRestriction')
+    -> (?onlyRightTurnRestriction ex:ortr:fromNode ?node1),
+       (?onlyRightTurnRestriction ex:ortr:intermediateNode ?node2),
+	   (?onlyRightTurnRestriction ex:ortr:toNode ?node3)
+]
+
+[onlyRightTurnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_right_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?onlyRightTurnRestriction, ?node1, ?node2, ?node3, 'onlyRightTurnRestriction')
+    -> (?onlyRightTurnRestriction ex:ortr:fromNode ?node1),
+       (?onlyRightTurnRestriction ex:ortr:intermediateNode ?node2),
+	   (?onlyRightTurnRestriction ex:ortr:toNode ?node3)
+]
+
+[leftTurnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_left_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?leftTurnRestriction, ?node1, ?node2, ?node3, 'leftTurnRestriction')
+    -> (?leftTurnRestriction ex:ltr:fromNode ?node1),
+       (?leftTurnRestriction ex:ltr:intermediateNode ?node2),
+	   (?leftTurnRestriction ex:ltr:toNode ?node3)
+]
+
+[leftTurnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_left_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?leftTurnRestriction, ?node1, ?node2, ?node3, 'leftTurnRestriction')
+    -> (?leftTurnRestriction ex:ltr:fromNode ?node1),
+       (?leftTurnRestriction ex:ltr:intermediateNode ?node2),
+	   (?leftTurnRestriction ex:ltr:toNode ?node3)
+]
+
+[onlyLeftTurnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_left_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?onlyLeftTurnRestriction, ?node1, ?node2, ?node3, 'onlyLeftTurnRestriction')
+    -> (?onlyLeftTurnRestriction ex:oltr:fromNode ?node1),
+       (?onlyLeftTurnRestriction ex:oltr:intermediateNode ?node2),
+	   (?onlyLeftTurnRestriction ex:oltr:toNode ?node3)
+]
+
+[onlyLeftTurnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_left_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?onlyLeftTurnRestriction, ?node1, ?node2, ?node3, 'onlyLeftTurnRestriction')
+    -> (?onlyLeftTurnRestriction ex:oltr:fromNode ?node1),
+       (?onlyLeftTurnRestriction ex:oltr:intermediateNode ?node2),
+	   (?onlyLeftTurnRestriction ex:oltr:toNode ?node3)
+]
+
+[straightOnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_straight_on'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?straightOnRestriction, ?node1, ?node2, ?node3, 'straightOnRestriction')
+    -> (?straightOnRestriction ex:sor:fromNode ?node1),
+       (?straightOnRestriction ex:sor:intermediateNode ?node2),
+	   (?straightOnRestriction ex:sor:toNode ?node3)
+]
+
+[straightOnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_straight_on'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?straightOnRestriction, ?node1, ?node2, ?node3, 'straightOnRestriction')
+    -> (?straightOnRestriction ex:sor:fromNode ?node1),
+       (?straightOnRestriction ex:sor:intermediateNode ?node2),
+	   (?straightOnRestriction ex:sor:toNode ?node3)
+]
+
+[onlyStraightOnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_straight_on'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?onlyStraightOnRestriction, ?node1, ?node2, ?node3, 'onlyStraightOnRestriction')
+    -> (?onlyStraightOnRestriction ex:osor:fromNode ?node1),
+       (?onlyStraightOnRestriction ex:osor:intermediateNode ?node2),
+	   (?onlyStraightOnRestriction ex:osor:toNode ?node3)
+]
+
+[onlyStraightOnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_straight_on'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?onlyStraightOnRestriction, ?node1, ?node2, ?node3, 'onlyStraightOnRestriction')
+    -> (?onlyStraightOnRestriction ex:osor:fromNode ?node1),
+       (?onlyStraightOnRestriction ex:osor:intermediateNode ?node2),
+	   (?onlyStraightOnRestriction ex:osor:toNode ?node3)
+]
+
+[uTurnRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_u_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?uTurnRestriction, ?node1, ?node2, ?node3, 'uTurnRestriction')
+    -> (?uTurnRestriction ex:utr:fromNode ?node1),
+       (?uTurnRestriction ex:utr:intermediateNode ?node2),
+	   (?uTurnRestriction ex:utr:toNode ?node3)
+]
+
+[uTurnRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_u_turn'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?uTurnRestriction, ?node1, ?node2, ?node3, 'uTurnRestriction')
+    -> (?uTurnRestriction ex:utr:fromNode ?node1),
+       (?uTurnRestriction ex:utr:intermediateNode ?node2),
+	   (?uTurnRestriction ex:utr:toNode ?node3)
+]
+
+[entryRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_entry'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?entryRestriction, ?node1, ?node2, ?node3, 'entryRestriction')
+    -> (?entryRestriction ex:enr:fromNode ?node1),
+       (?entryRestriction ex:enr:intermediateNode ?node2),
+	   (?entryRestriction ex:enr:toNode ?node3)
+]
+
+[entryRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_entry'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?entryRestriction, ?node1, ?node2, ?node3, 'entryRestriction')
+    -> (?entryRestriction ex:enr:fromNode ?node1),
+       (?entryRestriction ex:enr:intermediateNode ?node2),
+	   (?entryRestriction ex:enr:toNode ?node3)
+]
+
+[exitRestriction1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_exit'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+	(?relationMember3 ex:member ?way2),
+	(?relationMember3 ex:element 'way'),
+	(?relationMember3 ex:role 'to'),
+	(?relationMember3 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?exitRestriction, ?node1, ?node2, ?node3, 'exitRestriction')
+    -> (?exitRestriction ex:exr:fromNode ?node1),
+       (?exitRestriction ex:exr:intermediateNode ?node2),
+	   (?exitRestriction ex:exr:toNode ?node3)
+]
+
+[exitRestriction2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'no_exit'),
+	(?relationMember1 ex:member ?way1),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'via'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?way2),
+	(?relationMember2 ex:element 'way'),
+	(?relationMember2 ex:role 'to'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment1 ex:rs:fromNode ?node1),
+    (?roadSegment1 ex:rs:toNode ?node2),
+	(?roadSegment1 ex:rs:inWay ?way1),
+	(?roadSegment2 ex:rs:fromNode ?node2),
+    (?roadSegment2 ex:rs:toNode ?node3),
+	(?roadSegment2 ex:rs:inWay ?way2),
+	makeSkolem(?exitRestriction, ?node1, ?node2, ?node3, 'exitRestriction')
+    -> (?exitRestriction ex:exr:fromNode ?node1),
+       (?exitRestriction ex:exr:intermediateNode ?node2),
+	   (?exitRestriction ex:exr:toNode ?node3)
+]
+
+[forbiddenDirection1:
+    (?rightTurnRestriction ex:rtr:fromNode ?node1),
+    (?rightTurnRestriction ex:rtr:intermediateNode ?node2),
+	(?rightTurnRestriction ex:rtr:toNode ?node3),
+	makeSkolem(?forbiddenDirection, ?node1, ?node2, ?node3, 'forbiddenDirection')
+	-> (?forbiddenDirection ex:fd:fromNode ?node1),
+       (?forbiddenDirection ex:fd:intermediateNode ?node2),
+	   (?forbiddenDirection ex:fd:toNode ?node3)
+]
+
+[forbiddenDirection2:
+    (?leftTurnRestriction ex:ltr:fromNode ?node1),
+    (?leftTurnRestriction ex:ltr:intermediateNode ?node2),
+	(?leftTurnRestriction ex:ltr:toNode ?node3),
+	makeSkolem(?forbiddenDirection, ?node1, ?node2, ?node3, 'forbiddenDirection')
+	-> (?forbiddenDirection ex:fd:fromNode ?node1),
+       (?forbiddenDirection ex:fd:intermediateNode ?node2),
+	   (?forbiddenDirection ex:fd:toNode ?node3)
+]
+
+[forbiddenDirection3:
+    (?straightOnRestriction ex:sor:fromNode ?node1),
+    (?straightOnRestriction ex:sor:intermediateNode ?node2),
+	(?straightOnRestriction ex:sor:toNode ?node3),
+	makeSkolem(?forbiddenDirection, ?node1, ?node2, ?node3, 'forbiddenDirection')
+	-> (?forbiddenDirection ex:fd:fromNode ?node1),
+       (?forbiddenDirection ex:fd:intermediateNode ?node2),
+	   (?forbiddenDirection ex:fd:toNode ?node3)
+]
+
+[forbiddenDirection4:
+    (?uTurnRestriction ex:utr:fromNode ?node1),
+    (?uTurnRestriction ex:utr:intermediateNode ?node2),
+	(?uTurnRestriction ex:utr:toNode ?node3),
+	makeSkolem(?forbiddenDirection, ?node1, ?node2, ?node3, 'forbiddenDirection')
+	-> (?forbiddenDirection ex:fd:fromNode ?node1),
+       (?forbiddenDirection ex:fd:intermediateNode ?node2),
+	   (?forbiddenDirection ex:fd:toNode ?node3)
+]
+
+[forbiddenDirection5:
+    (?entryRestriction ex:enr:fromNode ?node1),
+    (?entryRestriction ex:enr:intermediateNode ?node2),
+	(?entryRestriction ex:enr:toNode ?node3),
+	makeSkolem(?forbiddenDirection, ?node1, ?node2, ?node3, 'forbiddenDirection')
+	-> (?forbiddenDirection ex:fd:fromNode ?node1),
+       (?forbiddenDirection ex:fd:intermediateNode ?node2),
+	   (?forbiddenDirection ex:fd:toNode ?node3)
+]
+
+[forbiddenDirection6:
+    (?exitRestriction ex:exr:fromNode ?node1),
+    (?exitRestriction ex:exr:intermediateNode ?node2),
+	(?exitRestriction ex:exr:toNode ?node3),
+	makeSkolem(?forbiddenDirection, ?node1, ?node2, ?node3, 'forbiddenDirection')
+	-> (?forbiddenDirection ex:fd:fromNode ?node1),
+       (?forbiddenDirection ex:fd:intermediateNode ?node2),
+	   (?forbiddenDirection ex:fd:toNode ?node3)
+]
+
+[mandatoryDirectionExists1:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_right_turn'),
+	(?relationMember1 ex:member ?way),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment ex:rs:fromNode ?node1),
+    (?roadSegment ex:rs:toNode ?node2),
+	(?roadSegment ex:rs:inWay ?way),
+	makeSkolem(?mandatoryDirectionExists, ?node1, ?node2, 'mandatoryDirectionExists')
+    -> (?mandatoryDirectionExists ex:mde:fromNode ?node1),
+       (?mandatoryDirectionExists ex:mde:intermediateNode ?node2)
+]
+
+[mandatoryDirectionExists2:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_right_turn'),
+	(?relationMember ex:member ?way),
+	(?relationMember ex:element 'way'),
+	(?relationMember ex:role 'via'),
+	(?relationMember ex:relation ?relation),
+    (?roadSegment ex:rs:fromNode ?node1),
+    (?roadSegment ex:rs:toNode ?node2),
+	(?roadSegment ex:rs:inWay ?way),
+	makeSkolem(?mandatoryDirectionExists, ?node1, ?node2, 'mandatoryDirectionExists')
+    -> (?mandatoryDirectionExists ex:mde:fromNode ?node1),
+       (?mandatoryDirectionExists ex:mde:intermediateNode ?node2)
+]
+
+[mandatoryDirectionExists3:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_left_turn'),
+	(?relationMember1 ex:member ?way),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment ex:rs:fromNode ?node1),
+    (?roadSegment ex:rs:toNode ?node2),
+	(?roadSegment ex:rs:inWay ?way),
+	makeSkolem(?mandatoryDirectionExists, ?node1, ?node2, 'mandatoryDirectionExists')
+    -> (?mandatoryDirectionExists ex:mde:fromNode ?node1),
+       (?mandatoryDirectionExists ex:mde:intermediateNode ?node2)
+]
+
+[mandatoryDirectionExists4:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_left_turn'),
+	(?relationMember ex:member ?way),
+	(?relationMember ex:element 'way'),
+	(?relationMember ex:role 'via'),
+	(?relationMember ex:relation ?relation),
+    (?roadSegment ex:rs:fromNode ?node1),
+    (?roadSegment ex:rs:toNode ?node2),
+	(?roadSegment ex:rs:inWay ?way),
+	makeSkolem(?mandatoryDirectionExists, ?node1, ?node2, 'mandatoryDirectionExists')
+    -> (?mandatoryDirectionExists ex:mde:fromNode ?node1),
+       (?mandatoryDirectionExists ex:mde:intermediateNode ?node2)
+]
+
+[mandatoryDirectionExists5:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_straight_on'),
+	(?relationMember1 ex:member ?way),
+	(?relationMember1 ex:element 'way'),
+	(?relationMember1 ex:role 'from'),
+	(?relationMember1 ex:relation ?relation),
+	(?relationMember2 ex:member ?node2),
+	(?relationMember2 ex:element 'node'),
+	(?relationMember2 ex:role 'via'),
+	(?relationMember2 ex:relation ?relation),
+    (?roadSegment ex:rs:fromNode ?node1),
+    (?roadSegment ex:rs:toNode ?node2),
+	(?roadSegment ex:rs:inWay ?way),
+	makeSkolem(?mandatoryDirectionExists, ?node1, ?node2, 'mandatoryDirectionExists')
+    -> (?mandatoryDirectionExists ex:mde:fromNode ?node1),
+       (?mandatoryDirectionExists ex:mde:intermediateNode ?node2)
+]
+
+[mandatoryDirectionExists6:
+	(?relation rdf:type ex:relation),
+	(?relation ex:relationTag ?tag),
+	(?tag ex:key 'restriction'),
+	(?tag ex:value 'only_straight_on'),
+	(?relationMember ex:member ?way),
+	(?relationMember ex:element 'way'),
+	(?relationMember ex:role 'via'),
+	(?relationMember ex:relation ?relation),
+    (?roadSegment ex:rs:fromNode ?node1),
+    (?roadSegment ex:rs:toNode ?node2),
+	(?roadSegment ex:rs:inWay ?way),
+	makeSkolem(?mandatoryDirectionExists, ?node1, ?node2, 'mandatoryDirectionExists')
+    -> (?mandatoryDirectionExists ex:mde:fromNode ?node1),
+       (?mandatoryDirectionExists ex:mde:intermediateNode ?node2)
+]
+
+[mandatoryDirection1:
+	(?onlyRightTurnRestriction ex:ortr:fromNode ?node1),
+    (?onlyRightTurnRestriction ex:ortr:intermediateNode ?node2),
+	(?onlyRightTurnRestriction ex:ortr:toNode ?node3),
+	makeSkolem(?mandatoryDirection, ?node1, ?node2, ?node3, 'mandatoryDirection')
+    -> (?mandatoryDirection ex:md:fromNode ?node1),
+       (?mandatoryDirection ex:md:intermediateNode ?node2)
+	   (?mandatoryDirection ex:md:toNode ?node3)
+]
+
+[mandatoryDirection2:
+	(?onlyLeftTurnRestriction ex:oltr:fromNode ?node1),
+    (?onlyLeftTurnRestriction ex:oltr:intermediateNode ?node2),
+	(?onlyLeftTurnRestriction ex:oltr:toNode ?node3),
+	makeSkolem(?mandatoryDirection, ?node1, ?node2, ?node3, 'mandatoryDirection')
+    -> (?mandatoryDirection ex:md:fromNode ?node1),
+       (?mandatoryDirection ex:md:intermediateNode ?node2)
+	   (?mandatoryDirection ex:md:toNode ?node3)
+]
+
+[mandatoryDirection3:
+	(?onlyStraightOnRestriction ex:osor:fromNode ?node1),
+    (?onlyStraightOnRestriction ex:osor:intermediateNode ?node2),
+	(?onlyStraightOnRestriction ex:osor:toNode ?node3),
+	makeSkolem(?mandatoryDirection, ?node1, ?node2, ?node3, 'mandatoryDirection')
+    -> (?mandatoryDirection ex:md:fromNode ?node1),
+       (?mandatoryDirection ex:md:intermediateNode ?node2)
+	   (?mandatoryDirection ex:md:toNode ?node3)
+]
+
+[yieldSign: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'give_way')
+    -> (?x rdf:type ex:yieldSign)
+]
+
+[stopSign: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'stop')
+    -> (?x rdf:type ex:stopSign)
+]
+
+[trafficSignal: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'traffic_signals')
+    -> (?x rdf:type ex:trafficSignal)
+]
+
+[pedestrianCrossing: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'highway'), 
+    (?tag ex:value 'crossing') 
+    -> (?x rdf:type ex:pedestrianCrossing)
+]
+
+[tramCrossing: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'railway'), 
+    (?tag ex:value 'tram_level_crossing')
+    -> (?x rdf:type ex:tramCrossing)
+]
+
+[trainCrossing: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'railway'), 
+    (?tag ex:value 'level_crossing')
+    -> (?x rdf:type ex:trainCrossing)
+]
+
+[busStation: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag1), 
+    (?tag1 ex:key 'public_transport'), 
+    (?tag1 ex:value 'stop_position'),
+    (?x ex:nodeTag ?tag2),
+    (?tag2 ex:key 'bus'), 
+    (?tag2 ex:value 'yes'),
+    noValue(?x ex:nodeTag ex:key:tram::value:yes)
+    -> (?x rdf:type ex:busStation)
+]
+
+[tramStation: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag1), 
+    (?tag1 ex:key 'public_transport'), 
+    (?tag1 ex:value 'stop_position'), 
+    (?x ex:nodeTag ?tag2), 
+    (?tag2 ex:key 'tram'), 
+    (?tag2 ex:value 'yes'), 
+    noValue(?x ex:nodeTag ex:key:tram::value:yes)
+    -> (?x rdf:type ex:tramStation)
+]
+
+[intermodalStation: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag1), 
+    (?tag1 ex:key 'public_transport'), 
+    (?tag1 ex:value 'stop_position'), 
+    (?x ex:nodeTag ?tag2), 
+    (?tag2 ex:key 'bus'), 
+    (?tag2 ex:value 'yes'), 
+    (?x ex:nodeTag ?tag3), 
+    (?tag3 ex:key 'tram'), 
+    (?tag3 ex:value 'yes') 
+    -> (?x rdf:type ex:intermodalStation)
+]
+
+[kindergarten1: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'kindergarten') 
+    -> (?x rdf:type ex:kindergarten)
+]
+
+[kindergarten2: 
+    (?y rdf:type ex:way), 
+    (?y ex:wayTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'kindergarten') 
+    -> (?y rdf:type ex:kindergarten)
+]
+
+[school1: 
+    (?x rdf:type ex:node), 
+    (?x ex:nodeTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'school') 
+    -> (?x rdf:type ex:school)
+]
+
+[school2: 
+    (?y rdf:type ex:way), 
+    (?y ex:wayTag ?tag), 
+    (?tag ex:key 'amenity'), 
+    (?tag ex:value 'school') 
+    -> (?y rdf:type ex:school)
+]

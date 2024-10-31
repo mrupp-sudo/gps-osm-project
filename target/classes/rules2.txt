@@ -1,0 +1,27 @@
+@prefix ex: <http://example.org#> .
+
+# Datalog rules in RDF
+
+[isReachable3:
+	(?node1 rdf:type ex:isReachable),
+	(?node2 rdf:type ex:isReachable),
+	(?intersection ex:i:fromNode ?node1),
+	(?intersection ex:i:intermediateNode ?node2),
+	(?intersection ex:i:toNode ?node3)
+	-> (?node3 rdf:type ex:isReachable) 
+]
+
+[reachableStation1:
+    (?x rdf:type ex:busStation)
+    -> [(?x rdf:type ex:reachableStation) <- (?x rdf:type ex:isReachable)]
+]
+
+[reachableStation2:
+    (?x rdf:type ex:tramStation)
+    -> [(?x rdf:type ex:reachableStation) <- (?x rdf:type ex:isReachable)]
+]
+
+[reachableStation3:
+    (?x rdf:type ex:intermodalStation)
+    -> [(?x rdf:type ex:reachableStation) <- (?x rdf:type ex:isReachable)]
+]

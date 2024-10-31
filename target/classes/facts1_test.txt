@@ -1,0 +1,2 @@
+delete(node(3)).
+add(node(5)).
