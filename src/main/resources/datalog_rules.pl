@@ -234,13 +234,6 @@ intermodalStation(X) :-
 	nodeTag(X, "public_transport", "stop_position"),
 	nodeTag(X, "bus", "yes"),
 	nodeTag(X, "tram", "yes").
-reachableStation(X) :-
-	(
-		busStation(X);
-		tramStation(X);
-		intermodalStation(X)
-	),
-	isReachable(X).
 kindergarten(X) :-
 	node(X),
 	nodeTag(X, "amenity", "kindergarten").
