@@ -22,16 +22,17 @@ import io.jenetics.jpx.WayPoint;
 
 public class DataGenerator {
 
-    private final String TRACK_FILE_PATH = "src/main/resources/track.gpx"; // File path to GPX data
-    private final int RADIUS = 200; // Specify radius of accessed data around trackpoints
+    private final String TRACK_FILE_PATH = "src/main/resources/track1.gpx"; // File path to GPX data
+    private final int RADIUS = 100; // Specify radius of accessed data around trackpoints
     
     private GPX gpx;
     private Stream<WayPoint> pointsStream;
     private Iterator<WayPoint> iterator;
     private OsmConnection connection;
     private OverpassMapDataApi overpass;
-
-    private CustomMapDataHandler handler, previousHandler;
+    private WeatherService weatherService;
+    private CustomMapDataHandler mapHandler, previousMapHandler;
+    private WeatherHandler weatherHandler, previousWeatherHandler;
     private StreamListener streamListener;
 
     public DataGenerator() {
@@ -50,6 +51,8 @@ public class DataGenerator {
         // Initialize Overpass connection for map data queries
         connection = new OsmConnection("https://overpass-api.de/api/", "my user agent");
         overpass = new OverpassMapDataApi(connection);
+        
+        weatherService = new WeatherService(); // Initialize Open-Meteo connection for weather data queries
     }
 
     // Set a listener for streaming events
@@ -83,26 +86,32 @@ public class DataGenerator {
                 .replace("\"", "'");
     }
 
-    // Writes facts by identifying changes in map data
+    // Writes facts by identifying changes in map and weather data
     private void writeFacts(String factsFilePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(factsFilePath))) {
-            List<Node> newNodes = handler.getNewNodes(previousHandler);
-            List<Node> deletedNodes = handler.getDeletedNodes(previousHandler);
+            Node newClosestRoadNode = mapHandler.findClosestRoadNode();
+            Node deletedClosestRoadNode = previousMapHandler.getClosestRoadNode();
+        	
+            List<Node> newNodes = mapHandler.getNewNodes(previousMapHandler);
+            List<Node> deletedNodes = mapHandler.getDeletedNodes(previousMapHandler);
             
-            List<Way> newWays = handler.getNewWays(previousHandler);
-            List<Way> deletedWays = handler.getDeletedWays(previousHandler);
+            List<Way> newWays = mapHandler.getNewWays(previousMapHandler);
+            List<Way> deletedWays = mapHandler.getDeletedWays(previousMapHandler);
             
-            List<Relation> newRelations = handler.getNewRelations(previousHandler);
-            List<Relation> deletedRelations = handler.getDeletedRelations(previousHandler);
+            List<Relation> newRelations = mapHandler.getNewRelations(previousMapHandler);
+            List<Relation> deletedRelations = mapHandler.getDeletedRelations(previousMapHandler);
             
-            Node closestRoadNode = handler.getClosestRoadNode();
-            Node previousClosestRoadNode = previousHandler.getClosestRoadNode();
+            String newTemperatureCategory = weatherHandler.getNewTemperatureCategory(previousWeatherHandler);
+            String newPrecipitationCategory = weatherHandler.getNewPrecipitationCategory(previousWeatherHandler);
+            
+            String deletedTemperatureCategory = weatherHandler.getDeletedTemperatureCategory(previousWeatherHandler);
+            String deletedPrecipitationCategory = weatherHandler.getDeletedPrecipitationCategory(previousWeatherHandler);
 
             // Write deleted facts
-            writeDeletedFacts(writer, deletedNodes, deletedWays, deletedRelations, previousClosestRoadNode);
+            writeDeletedFacts(writer, deletedClosestRoadNode, deletedNodes, deletedWays, deletedRelations, deletedTemperatureCategory, deletedPrecipitationCategory);
             
             // Write new facts
-            writeNewFacts(writer, newNodes, newWays, newRelations, closestRoadNode);
+            writeNewFacts(writer, newClosestRoadNode, newNodes, newWays, newRelations, newTemperatureCategory, newPrecipitationCategory);
 
             System.out.println("Datalog facts have been updated");
         } catch (IOException e) {
@@ -110,10 +119,10 @@ public class DataGenerator {
         }
     }
 
-    // Writes deleted facts for nodes, ways, and relations
-    private void writeDeletedFacts(BufferedWriter writer, List<Node> deletedNodes, List<Way> deletedWays, List<Relation> deletedRelations, Node previousClosestRoadNode) throws IOException {
-        if (previousClosestRoadNode != null) {
-            writer.write(String.format("delete(position(%d)).\n", previousClosestRoadNode.getId()));
+    // Writes deleted facts for map and weather data
+    private void writeDeletedFacts(BufferedWriter writer, Node deletedClosestRoadNode, List<Node> deletedNodes, List<Way> deletedWays, List<Relation> deletedRelations, String deletedTemperatureCategory, String deletedPrecipitationCategory) throws IOException {
+        if (deletedClosestRoadNode != null) {
+            writer.write(String.format("delete(position(%d)).\n", deletedClosestRoadNode.getId()));
         }
         
         for (Node node : deletedNodes) {
@@ -159,12 +168,20 @@ public class DataGenerator {
                 }
             }
         }
+        
+        if (deletedTemperatureCategory != null) {
+            writer.write(String.format("delete(weatherParameter(\"temperature\", \"%s\")).\n", deletedTemperatureCategory));
+        }
+        
+        if (deletedPrecipitationCategory != null) {
+            writer.write(String.format("delete(weatherParameter(\"precipitation\", \"%s\")).\n", deletedPrecipitationCategory));
+        }
     }
 
-    // Writes new facts for nodes, ways, and relations
-    private void writeNewFacts(BufferedWriter writer, List<Node> newNodes, List<Way> newWays, List<Relation> newRelations, Node closestRoadNode) throws IOException {
-        if (closestRoadNode != null) {
-            writer.write(String.format("add(position(%d)).\n", closestRoadNode.getId()));
+    // Writes new facts for map and weather data
+    private void writeNewFacts(BufferedWriter writer, Node newClosestRoadNode, List<Node> newNodes, List<Way> newWays, List<Relation> newRelations, String newTemperatureCategory, String newPrecipitationCategory) throws IOException {
+        if (newClosestRoadNode != null) {
+            writer.write(String.format("add(position(%d)).\n", newClosestRoadNode.getId()));
         }
 
         for (Node node : newNodes) {
@@ -210,36 +227,47 @@ public class DataGenerator {
                 }
             }
         }
+        
+        if (newTemperatureCategory != null) {
+            writer.write(String.format("add(weatherParameter(\"temperature\", \"%s\")).\n", newTemperatureCategory));
+        }
+        
+        if (newPrecipitationCategory != null) {
+            writer.write(String.format("add(weatherParameter(\"precipitation\", \"%s\")).\n", newPrecipitationCategory));
+        }
     }
 
 
-    // Streams track data, queries map data, and triggers fact-writing at each point
+    // Streams GPS track, queries map and weather data, and triggers fact-writing at each trackpoint
     public void streamTrack() {
-        previousHandler = new CustomMapDataHandler();
+        previousMapHandler = new CustomMapDataHandler();
+        previousWeatherHandler = new WeatherHandler();
         WayPoint previousPoint = null;
 
         while (nextPointExists()) {
             WayPoint currentPoint = getPoint();
             if (currentPoint != null) {
-                handler = new CustomMapDataHandler(currentPoint);
+                mapHandler = new CustomMapDataHandler(currentPoint);
+                weatherHandler = null;
 
                 if (previousPoint != null) {
                     sleepBetweenPoints(previousPoint, currentPoint);
                 }
 
                 System.out.println("Access data around trackpoint(lat=" + currentPoint.getLatitude() +
-                        ", lon=" + currentPoint.getLongitude() + ") at time " + currentPoint.getTime().orElse(null));
+                        ", lon=" + currentPoint.getLongitude() + ") at timestamp " + currentPoint.getTime().orElse(null));
 
-                // Query the area and update facts based on changes
+                // Execute data queries and update facts based on changes
                 queryAndUpdateFacts(currentPoint);
-                previousHandler = handler;
+                previousMapHandler = mapHandler;
+                previousWeatherHandler = weatherHandler;
                 previousPoint = currentPoint;
             }
         }
         notifyEndOfStream();
     }
 
-    // Sleeps for the duration between points to simulate driving
+    // Sleeps for the duration between trackpoints to simulate driving
     private void sleepBetweenPoints(WayPoint previousPoint, WayPoint currentPoint) {
         Optional<Instant> previousTime = previousPoint.getTime();
         Optional<Instant> currentTime = currentPoint.getTime();
@@ -258,13 +286,16 @@ public class DataGenerator {
         }
     }
 
-    // Queries Overpass API and updates facts for the current track point
+    // Queries map and weather data and updates facts for the current track point
     private void queryAndUpdateFacts(WayPoint currentPoint) {
-        String factsFilePath = "src/main/resources/sent_facts.pl";
-        String query = "nwr(around:" + RADIUS + "," + currentPoint.getLatitude() + "," + currentPoint.getLongitude() + "); out body;";
-        overpass.queryElements(query, handler);
-        writeFacts(factsFilePath);
+        // Query Overpass for map data
+    	String query = "nw(around:" + RADIUS + "," + currentPoint.getLatitude() + "," + currentPoint.getLongitude() + "); out body;";
+        overpass.queryElements(query, mapHandler);
+        // Query Open-Meteo for weather data
+		weatherHandler = weatherService.queryWeather(currentPoint.getTime().orElse(null).toString(), currentPoint.getLatitude().doubleValue(), currentPoint.getLongitude().doubleValue());
         
+        String factsFilePath = "src/main/resources/sent_facts.pl";
+        writeFacts(factsFilePath);
         if (streamListener != null) {
             streamListener.onFactsCreated(new File(factsFilePath));
         }

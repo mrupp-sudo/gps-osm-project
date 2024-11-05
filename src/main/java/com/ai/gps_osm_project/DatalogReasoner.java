@@ -26,21 +26,20 @@ public class DatalogReasoner {
 
         this.infModel = ModelFactory.createInfModel(reasoner, this.model); // Initialize inference model
     }
-
+    
     // Loads facts from a file, parses each fact, and applies it to the model
-    public void loadFacts(String factFile) {
-        try (BufferedReader br = new BufferedReader(new FileReader(factFile))) {
+    public void loadFacts(String factFilePath) {
+        try (BufferedReader br = new BufferedReader(new FileReader(factFilePath))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String fact = line.trim();
-
                 // Processes 'add' or 'delete' facts by parsing and updating the model
                 if (fact.startsWith("add(")) {
                     String actualFact = fact.substring(4, fact.length() - 1);
-                    parseFact(actualFact, true);
+                    infModel.add(parseFact(actualFact));
                 } else if (fact.startsWith("delete(")) {
                     String actualFact = fact.substring(7, fact.length() - 1);
-                    parseFact(actualFact, false);
+                    infModel.remove(parseFact(actualFact));
                 }
             }
         } catch (IOException e) {
@@ -104,125 +103,120 @@ public class DatalogReasoner {
         Resource school = infModel.createResource(NAMESPACE + "school");
         infModel.listSubjectsWithProperty(RDF.type, school)
             .forEachRemaining(resource -> System.out.println(resource + " is a School"));
+        
+        System.out.println("\nInferred Weather Condition:");
+        Property weatherCondition = infModel.createProperty(NAMESPACE + "weatherCondition");
+        infModel.listObjectsOfProperty(weatherCondition)
+            .forEachRemaining(resource -> System.out.println("Weather condition is " + resource));
     }
+   
 
-    // Parses individual fact strings and determines if they should be added or removed
-    private void parseFact(String fact, boolean isAdded) {
+    // Parses individual fact strings
+    private Statement[] parseFact(String fact) {
         if (fact.startsWith("position(")) {
             String id = fact.substring(9, fact.length() - 2);
-            Resource position = infModel.createResource(NAMESPACE + id);
-            Statement statement = infModel.createStatement(position, RDF.type, infModel.createResource(NAMESPACE + "position"));
-            processFact(statement, isAdded);
-
+            Resource node = infModel.createResource(NAMESPACE + id);
+            
+            Statement statement = infModel.createStatement(node, RDF.type, infModel.createResource(NAMESPACE + "position"));
+            return new Statement[]{statement};
+            
         } else if (fact.startsWith("node(")) {
             String id = fact.substring(5, fact.length() - 2);
             Resource node = infModel.createResource(NAMESPACE + id);
+            
             Statement statement = infModel.createStatement(node, RDF.type, infModel.createResource(NAMESPACE + "node"));
-            processFact(statement, isAdded);
-
+            return new Statement[]{statement};
+            
         } else if (fact.startsWith("nodeTag(")) {
             String[] parts = smartSplit(fact.substring(8, fact.length() - 2));
             Resource node = infModel.createResource(NAMESPACE + parts[0]);
-
             Resource tag = infModel.createResource();
 
             Statement statement1 = infModel.createStatement(node, infModel.createProperty(NAMESPACE + "nodeTag"), tag);
-            Statement statement2 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "key"), parts[1].replace("\"", ""));
-            Statement statement3 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "value"), parts[2].replace("\"", ""));
-            processFact(statement1, isAdded);
-            processFact(statement2, isAdded);
-            processFact(statement3, isAdded);
+            Statement statement2 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "tagKey"), parts[1].replace("\"", ""));
+            Statement statement3 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "tagValue"), parts[2].replace("\"", ""));
+            return new Statement[]{statement1, statement2, statement3};
 
         } else if (fact.startsWith("way(")) {
             String id = fact.substring(4, fact.length() - 2);
             Resource way = infModel.createResource(NAMESPACE + id);
+            
             Statement statement = infModel.createStatement(way, RDF.type, infModel.createResource(NAMESPACE + "way"));
-            processFact(statement, isAdded);
+            return new Statement[]{statement};
 
         } else if (fact.startsWith("wayTag(")) {
             String[] parts = smartSplit(fact.substring(7, fact.length() - 2));
             Resource way = infModel.createResource(NAMESPACE + parts[0]);
-
             Resource tag = infModel.createResource();
 
             Statement statement1 = infModel.createStatement(way, infModel.createProperty(NAMESPACE + "wayTag"), tag);
-            Statement statement2 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "key"), parts[1].replace("\"", ""));
-            Statement statement3 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "value"), parts[2].replace("\"", ""));
-            processFact(statement1, isAdded);
-            processFact(statement2, isAdded);
-            processFact(statement3, isAdded);
+            Statement statement2 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "tagKey"), parts[1].replace("\"", ""));
+            Statement statement3 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "tagValue"), parts[2].replace("\"", ""));
+            return new Statement[]{statement1, statement2, statement3};
 
         } else if (fact.startsWith("nextInWay(")) {
             String[] parts = fact.substring(10, fact.length() - 2).split(", ");
             Resource fromNode = infModel.createResource(NAMESPACE + parts[0]);
             Resource toNode = infModel.createResource(NAMESPACE + parts[1]);
             Resource way = infModel.createResource(NAMESPACE + parts[2]);
-
             Resource nextInWay = infModel.createResource();
+            
             Statement statement1 = infModel.createStatement(nextInWay, infModel.createProperty(NAMESPACE + "niw:fromNode"), fromNode);
             Statement statement2 = infModel.createStatement(nextInWay, infModel.createProperty(NAMESPACE + "niw:toNode"), toNode);
             Statement statement3 = infModel.createStatement(nextInWay, infModel.createProperty(NAMESPACE + "niw:inWay"), way);
-            processFact(statement1, isAdded);
-            processFact(statement2, isAdded);
-            processFact(statement3, isAdded);
+            return new Statement[]{statement1, statement2, statement3};
 
         } else if (fact.startsWith("relation(")) {
             String id = fact.substring(9, fact.length() - 2);
             Resource relation = infModel.createResource(NAMESPACE + id);
+            
             Statement statement = infModel.createStatement(relation, RDF.type, infModel.createResource(NAMESPACE + "relation"));
-            processFact(statement, isAdded);
+            return new Statement[]{statement};
 
         } else if (fact.startsWith("relationTag(")) {
             String[] parts = smartSplit(fact.substring(12, fact.length() - 2));
             Resource relation = infModel.createResource(NAMESPACE + parts[0]);
-
             Resource tag = infModel.createResource();
 
             Statement statement1 = infModel.createStatement(relation, infModel.createProperty(NAMESPACE + "relationTag"), tag);
-            Statement statement2 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "key"), parts[1].replace("\"", ""));
-            Statement statement3 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "value"), parts[2].replace("\"", ""));
-            processFact(statement1, isAdded);
-            processFact(statement2, isAdded);
-            processFact(statement3, isAdded);
+            Statement statement2 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "tagKey"), parts[1].replace("\"", ""));
+            Statement statement3 = infModel.createStatement(tag, infModel.createProperty(NAMESPACE + "tagValue"), parts[2].replace("\"", ""));
+            return new Statement[]{statement1, statement2, statement3};
 
         } else if (fact.startsWith("nextInRelation(")) {
             String[] parts = fact.substring(15, fact.length() - 2).split(", ");
             Resource fromMember = infModel.createResource(NAMESPACE + parts[0]);
             Resource toMember = infModel.createResource(NAMESPACE + parts[1]);
             Resource relation = infModel.createResource(NAMESPACE + parts[2]);
-
             Resource nextInRelation = infModel.createResource();
+            
             Statement statement1 = infModel.createStatement(nextInRelation, infModel.createProperty(NAMESPACE + "fromMember"), fromMember);
             Statement statement2 = infModel.createStatement(nextInRelation, infModel.createProperty(NAMESPACE + "toMember"), toMember);
             Statement statement3 = infModel.createStatement(nextInRelation, infModel.createProperty(NAMESPACE + "inRelation"), relation);
-            processFact(statement1, isAdded);
-            processFact(statement2, isAdded);
-            processFact(statement3, isAdded);
+            return new Statement[]{statement1, statement2, statement3};
 
         } else if (fact.startsWith("relationMember(")) {
             String[] parts = fact.substring(15, fact.length() - 2).split(", ");
             Resource member = infModel.createResource(NAMESPACE + parts[0]);
             Resource relation = infModel.createResource(NAMESPACE + parts[3]);
-
             Resource relationMember = infModel.createResource();
+            
             Statement statement1 = infModel.createStatement(relationMember, infModel.createProperty(NAMESPACE + "member"), member);
             Statement statement2 = infModel.createStatement(relationMember, infModel.createProperty(NAMESPACE + "element"), parts[1].replace("\"", ""));
             Statement statement3 = infModel.createStatement(relationMember, infModel.createProperty(NAMESPACE + "role"), parts[2].replace("\"", ""));
             Statement statement4 = infModel.createStatement(relationMember, infModel.createProperty(NAMESPACE + "relation"), relation);
-            processFact(statement1, isAdded);
-            processFact(statement2, isAdded);
-            processFact(statement3, isAdded);
-            processFact(statement4, isAdded);
+            return new Statement[]{statement1, statement2, statement3, statement4};
         }
-    }
-
-    // Adds or removes statements from the model
-    private void processFact(Statement statement, boolean isAdded) {
-        if (isAdded) {
-            infModel.add(statement);
-        } else {
-            infModel.remove(statement);
+        
+        else if (fact.startsWith("weatherParameter(")) {
+            String[] parts = fact.substring(17, fact.length() - 2).split(", ");
+            Resource weatherParameter = infModel.createResource();
+            
+            Statement statement1 = infModel.createStatement(weatherParameter, infModel.createProperty(NAMESPACE + "parameterKey"), parts[0].replace("\"", ""));
+            Statement statement2 = infModel.createStatement(weatherParameter, infModel.createProperty(NAMESPACE + "parameterValue"), parts[1].replace("\"", ""));
+            return new Statement[]{statement1, statement2};
         }
+        return null;
     }
 
     // Splits a fact string intelligently, accounting for quotes around strings

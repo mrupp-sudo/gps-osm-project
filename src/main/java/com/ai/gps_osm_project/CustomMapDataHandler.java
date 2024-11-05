@@ -22,6 +22,7 @@ public class CustomMapDataHandler implements MapDataHandler {
     private List<Node> nodes;
     private List<Way> ways;
     private List<Relation> relations;
+    private Node closestRoadNode; // Stores the closest road node to the given trackpoint
 
     public CustomMapDataHandler() {
         nodes = new ArrayList<>();
@@ -170,9 +171,9 @@ public class CustomMapDataHandler implements MapDataHandler {
         return deletedRelations; // List of relations removed from the current handler
     }
 
-    // Finds the closest road node to the given point, filtering only suitable car roads
-    public Node getClosestRoadNode() {
-        Node closestRoadNode = null;
+    // Finds the closest road node to the given trackpoint, filtering only suitable car roads
+    public Node findClosestRoadNode() {
+        closestRoadNode = null;
         double shortestDistance = Double.MAX_VALUE;
 
         // Check each way to identify car roads and calculate distances to the point
@@ -207,7 +208,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         String highway = tags.get("highway");
         if (highway == null) return false;
 
-        // Determine if it's a car road based on standard classifications
+        // Determine if it is a car road based on standard classifications
         boolean isCarRoad = highway.equals("motorway") || highway.equals("trunk") ||
                             highway.equals("primary") || highway.equals("secondary") ||
                             highway.equals("tertiary") || highway.equals("unclassified") ||
@@ -248,5 +249,10 @@ public class CustomMapDataHandler implements MapDataHandler {
             }
         }
         return null; // Node not found, return null
+    }
+    
+    // Returns the closest road node to the given trackpoint
+    public Node getClosestRoadNode() {
+        return closestRoadNode;
     }
 }
