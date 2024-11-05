@@ -18,24 +18,23 @@ public class WeatherService {
 
     private final OkHttpClient client;
 
-    // Constructor to initialize OkHttpClient
+    // Initialize the HTTP client for making API requests
     public WeatherService() {
         this.client = new OkHttpClient();
     }
 
-    // Fetch weather data synchronously
+    // Query weather data for a specific timestamp and location
     public WeatherHandler queryWeather(String timestamp, double latitude, double longitude) {
         byte[] responseIN = null;
 
-        // Parse and round the timestamp to the nearest 15-minute interval
+        // Round timestamp to the previous 15-minute interval and extract date
         ZonedDateTime zonedDateTime = ZonedDateTime.parse(timestamp);
         ZonedDateTime roundedTime = zonedDateTime.withMinute((zonedDateTime.getMinute() / 15) * 15).withSecond(0).withNano(0);
-        // Extract date in YYYY-MM-DD format
         String date = roundedTime.toLocalDate().toString();
         int hour = roundedTime.getHour();
         int minute = roundedTime.getMinute();
 
-        // Define the API URL for the weather forecast with minutely_15 data
+        // Build the URL for querying 15-minute interval weather data
         String url = String.format(
             "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&minutely_15=temperature_2m,precipitation&start_date=%s&end_date=%s&format=flatbuffers", date, date);
 
@@ -44,11 +43,11 @@ public class WeatherService {
                 .method("GET", null)
                 .build();
 
-        // Use the synchronous `execute` method to make the request
+        // Execute the API request and process the response
         try (Response response = client.newCall(request).execute()) {
             if (response.isSuccessful()) {
-                responseIN = response.body().bytes(); // Get the binary response
-                return processWeatherData(responseIN, date, hour, minute); // Parse and return the weather data
+                responseIN = response.body().bytes(); // Retrieve binary data if the request is successful
+                return processWeatherData(responseIN, date, hour, minute); // Parse and return weather data
             } else {
                 throw new IOException("Request failed with code: " + response.code());
             }
@@ -58,18 +57,19 @@ public class WeatherService {
         return null;
     }
 
+    // Process binary weather data to retrieve temperature and precipitation
     private WeatherHandler processWeatherData(byte[] responseIN, String date, int targetHour, int targetMinute) {
         try {
-            // Convert the binary response to ByteBuffer with little-endian order
+            // Prepare the ByteBuffer with little-endian order for flatbuffers
             ByteBuffer buffer = ByteBuffer.wrap(responseIN).order(ByteOrder.LITTLE_ENDIAN);
 
-            // Interpret the ByteBuffer as a WeatherApiResponse (positioned at 4)
+            // Parse binary response into a structured WeatherApiResponse
             WeatherApiResponse mApiResponse = WeatherApiResponse.getRootAsWeatherApiResponse((ByteBuffer) buffer.position(4));
 
-            // Retrieve the 15-minutely weather data block
+            // Retrieve 15-minute interval weather data
             VariablesWithTime minutely = mApiResponse.minutely15();
 
-            // Extract temperature and weather code variables
+            // Extract temperature and precipitation data from the weather response
             VariableWithValues temperature = new VariablesSearch(minutely)
                     .variable(Variable.temperature)
                     .first();
@@ -78,13 +78,13 @@ public class WeatherService {
                     .variable(Variable.precipitation)
                     .first();
 
-            // Calculate the index for the 15-minute interval (e.g., 11:30 -> index 46 if data starts at 00:00)
-            int targetIndex = targetHour * 4 + targetMinute / 15; // Each hour has 4 intervals (15 minutes each)
+            // Calculate index for the required 15-minute interval
+            int targetIndex = targetHour * 4 + targetMinute / 15; // Four 15-min intervals per hour
 
             double currentTemperature = temperature.values(targetIndex);
             double currentPrecipitation = precipitation.values(targetIndex);
             
-            // Clear the buffer after use
+            // Clear buffer after processing to free up memory
             buffer.clear();
             
             return new WeatherHandler(currentTemperature, currentPrecipitation);

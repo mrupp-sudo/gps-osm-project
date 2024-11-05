@@ -5,13 +5,12 @@ public class WeatherHandler {
     private String temperatureCategory;
     private double precipitation;
     private String precipitationCategory;
-    
+
     public WeatherHandler() {
         temperatureCategory = null;
         precipitationCategory = null;
     }
     
-
     public WeatherHandler(double temperature, double precipitation) {
         this.temperature = temperature;
         this.precipitation = precipitation;
@@ -19,45 +18,49 @@ public class WeatherHandler {
         precipitationCategory = this.categorizePrecipitation();
     }
 
-    // Getter for temperature
+    // Returns the temperature category
     public String getTemperatureCategory() {
         return temperatureCategory;
     }
 
-    // Getter for precipitation
+    // Returns the precipitation category
     public String getPrecipitationCategory() {
         return precipitationCategory;
     }
 
+    // Compares temperature category with the other handler, returns new category if changed
     public String getNewTemperatureCategory(WeatherHandler other) {
-    	if (temperatureCategory.equals(other.getTemperatureCategory())) {
-    		return null;
-    	}
-    	return temperatureCategory;
+        if (temperatureCategory.equals(other.getTemperatureCategory())) {
+            return null;
+        }
+        return temperatureCategory;
     }
     
+    // Compares temperature category with the other handler, returns old category if changed
     public String getDeletedTemperatureCategory(WeatherHandler other) {
-    	if (temperatureCategory.equals(other.getTemperatureCategory())) {
-    		return null;
-    	}
-    	return other.getTemperatureCategory();
+        if (temperatureCategory.equals(other.getTemperatureCategory())) {
+            return null;
+        }
+        return other.getTemperatureCategory();
     }
     
+    // Compares precipitation category with the other handler, returns new category if changed
     public String getNewPrecipitationCategory(WeatherHandler other) {
-    	if (precipitationCategory.equals(other.getPrecipitationCategory())) {
-    		return null;
-    	}
-    	return precipitationCategory;
+        if (precipitationCategory.equals(other.getPrecipitationCategory())) {
+            return null;
+        }
+        return precipitationCategory;
     }
     
+    // Compares precipitation category with the other handler, returns old category if changed
     public String getDeletedPrecipitationCategory(WeatherHandler other) {
-    	if (precipitationCategory.equals(other.getPrecipitationCategory())) {
-    		return null;
-    	}
-    	return other.getPrecipitationCategory();
+        if (precipitationCategory.equals(other.getPrecipitationCategory())) {
+            return null;
+        }
+        return other.getPrecipitationCategory();
     }
 
-    // Categorize temperature
+    // Determines temperature category based on the temperature value
     private String categorizeTemperature() {
         if (temperature < 0) {
             return "freezing";
@@ -72,7 +75,7 @@ public class WeatherHandler {
         }
     }
 
-    // Categorize precipitation
+    // Determines precipitation category based on the precipitation value
     private String categorizePrecipitation() {
         if (precipitation == 0) {
             return "no";
