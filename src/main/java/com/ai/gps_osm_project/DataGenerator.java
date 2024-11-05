@@ -113,7 +113,7 @@ public class DataGenerator {
             // Write new facts
             writeNewFacts(writer, newClosestRoadNode, newNodes, newWays, newRelations, newTemperatureCategory, newPrecipitationCategory);
 
-            System.out.println("Datalog facts have been updated");
+            System.out.println("SERVER: Datalog facts have been updated");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -254,7 +254,7 @@ public class DataGenerator {
                     sleepBetweenPoints(previousPoint, currentPoint);
                 }
 
-                System.out.println("Access data around trackpoint(lat=" + currentPoint.getLatitude() +
+                System.out.println("SERVER: Access data around trackpoint(lat=" + currentPoint.getLatitude() +
                         ", lon=" + currentPoint.getLongitude() + ") at timestamp " + currentPoint.getTime().orElse(null));
 
                 // Execute data queries and update facts based on changes
@@ -275,9 +275,10 @@ public class DataGenerator {
         if (previousTime.isPresent() && currentTime.isPresent()) {
             long sleepTime = Duration.between(previousTime.get(), currentTime.get()).toMillis();
             if (sleepTime > 0) {
-            	System.out.println("Car is driving..");
                 try {
-                    Thread.sleep(sleepTime);
+                    Thread.sleep(sleepTime / 2);
+                    System.out.println("SERVER: Car is driving");
+                    Thread.sleep(sleepTime / 2);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     e.printStackTrace();
@@ -289,7 +290,7 @@ public class DataGenerator {
     // Queries map and weather data and updates facts for the current track point
     private void queryAndUpdateFacts(WayPoint currentPoint) {
         // Query Overpass for map data
-    	String query = "nw(around:" + RADIUS + "," + currentPoint.getLatitude() + "," + currentPoint.getLongitude() + "); out body;";
+    	String query = "nwr(around:" + RADIUS + "," + currentPoint.getLatitude() + "," + currentPoint.getLongitude() + "); out body;";
         overpass.queryElements(query, mapHandler);
         // Query Open-Meteo for weather data
 		weatherHandler = weatherService.queryWeather(currentPoint.getTime().orElse(null).toString(), currentPoint.getLatitude().doubleValue(), currentPoint.getLongitude().doubleValue());

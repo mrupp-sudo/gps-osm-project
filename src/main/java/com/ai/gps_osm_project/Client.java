@@ -16,10 +16,10 @@ public class Client {
     }
 
     // Connects to the server at the specified host and port
-    private void connect(String host, int port) {
+    public void connect(String host, int port) {
         try {
             socket = new Socket(host, port); // Establishes a socket connection to the server
-            System.out.println("Client connected to server: " + host + " on port " + port);
+            System.out.println("CLIENT: Client connected to server [" + host + " on port " + port + "]");
             
             // Set up input and output streams for server communication
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -56,21 +56,20 @@ public class Client {
 
                     // Prompts user for input if valid input has not been received
                     if (!validInput) {
-                        System.out.println(serverMessage);
+                        System.out.println("CLIENT: " + serverMessage);
                         String userInput = getUserInput();      
                         out.println(userInput);                 
                     }
 
                     // Initiates fact data streaming from server if indicated
                     if (serverMessage.equals("SENDING FACTS")) {
-                        System.out.println("\nReceiving and processing facts..");
+                        System.out.println("CLIENT: Receiving and processing facts");
                         receiveAndProcessFacts();
                     } else if (serverMessage.equals("EOS")) {
-                        System.out.println("\nEnd of stream reached.");
                         break;
                     }
                 } else {
-                    System.out.println("Server disconnected.");
+                    System.out.println("CLIENT: Server disconnected");
                     break;
                 }
             }
@@ -114,11 +113,5 @@ public class Client {
         	 File factFile = new File(factFilePath);
         	 factFile.delete();
         }
-    }
-
-    // Main method to connect to the server
-    public static void main(String[] args) {
-        Client client = new Client();
-        client.connect("localhost", 5000);
     }
 }

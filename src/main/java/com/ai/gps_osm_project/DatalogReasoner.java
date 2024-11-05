@@ -22,7 +22,7 @@ public class DatalogReasoner {
         List<Rule> rulesList = Rule.rulesFromURL(RULES_FILE_PATH);
 
         GenericRuleReasoner reasoner = new GenericRuleReasoner(rulesList); // Initialize reasoner with loaded rules
-        reasoner.setMode(GenericRuleReasoner.HYBRID); // Set to hybrid mode for efficiency
+        reasoner.setMode(GenericRuleReasoner.FORWARD_RETE); // Set to hybrid mode for efficiency
 
         this.infModel = ModelFactory.createInfModel(reasoner, this.model); // Initialize inference model
     }
@@ -54,57 +54,57 @@ public class DatalogReasoner {
         infModel.listSubjectsWithProperty(RDF.type, yieldSign)
             .forEachRemaining(resource -> System.out.println(resource + " is a Yield Sign"));
         
-        System.out.println("\nInferred Stop Signs:");
+        System.out.println("Inferred Stop Signs:");
         Resource stopSign = infModel.createResource(NAMESPACE + "stopSign");
         infModel.listSubjectsWithProperty(RDF.type, stopSign)
             .forEachRemaining(resource -> System.out.println(resource + " is a Stop Sign"));
         
-        System.out.println("\nInferred Traffic Signals:");
+        System.out.println("Inferred Traffic Signals:");
         Resource trafficSignal = infModel.createResource(NAMESPACE + "trafficSignal");
         infModel.listSubjectsWithProperty(RDF.type, trafficSignal)
             .forEachRemaining(resource -> System.out.println(resource + " is a Traffic Signal"));
         
-        System.out.println("\nInferred Pedestrian Crossings:");
+        System.out.println("Inferred Pedestrian Crossings:");
         Resource pedestrianCrossing = infModel.createResource(NAMESPACE + "pedestrianCrossing");
         infModel.listSubjectsWithProperty(RDF.type, pedestrianCrossing)
             .forEachRemaining(resource -> System.out.println(resource + " is a Pedestrian Crossing"));
         
-        System.out.println("\nInferred Tram Crossings:");
+        System.out.println("Inferred Tram Crossings:");
         Resource tramCrossing = infModel.createResource(NAMESPACE + "tramCrossing");
         infModel.listSubjectsWithProperty(RDF.type, tramCrossing)
             .forEachRemaining(resource -> System.out.println(resource + " is a Tram Crossing"));
         
-        System.out.println("\nInferred Train Crossings:");
+        System.out.println("Inferred Train Crossings:");
         Resource trainCrossing = infModel.createResource(NAMESPACE + "trainCrossing");
         infModel.listSubjectsWithProperty(RDF.type, trainCrossing)
             .forEachRemaining(resource -> System.out.println(resource + " is a Train Crossing"));
         
-        System.out.println("\nInferred Bus Stations:");
+        System.out.println("Inferred Bus Stations:");
         Resource busStation = infModel.createResource(NAMESPACE + "busStation");
         infModel.listSubjectsWithProperty(RDF.type, busStation)
             .forEachRemaining(resource -> System.out.println(resource + " is a Bus Station"));
         
-        System.out.println("\nInferred Tram Stations:");
+        System.out.println("Inferred Tram Stations:");
         Resource tramStation = infModel.createResource(NAMESPACE + "tramStation");
         infModel.listSubjectsWithProperty(RDF.type, tramStation)
             .forEachRemaining(resource -> System.out.println(resource + " is a Tram Station"));
         
-        System.out.println("\nInferred Intermodal Stations:");
+        System.out.println("Inferred Intermodal Stations:");
         Resource intermodalStation = infModel.createResource(NAMESPACE + "intermodalStation");
         infModel.listSubjectsWithProperty(RDF.type, intermodalStation)
             .forEachRemaining(resource -> System.out.println(resource + " is an Intermodal Station"));
         
-        System.out.println("\nInferred Kindergartens:");
+        System.out.println("Inferred Kindergartens:");
         Resource kindergarten = infModel.createResource(NAMESPACE + "kindergarten");
         infModel.listSubjectsWithProperty(RDF.type, kindergarten)
             .forEachRemaining(resource -> System.out.println(resource + " is a Kindergarten"));
         
-        System.out.println("\nInferred Schools:");
+        System.out.println("Inferred Schools:");
         Resource school = infModel.createResource(NAMESPACE + "school");
         infModel.listSubjectsWithProperty(RDF.type, school)
             .forEachRemaining(resource -> System.out.println(resource + " is a School"));
         
-        System.out.println("\nInferred Weather Condition:");
+        System.out.println("Inferred Weather Condition:");
         Property weatherCondition = infModel.createProperty(NAMESPACE + "weatherCondition");
         infModel.listObjectsOfProperty(weatherCondition)
             .forEachRemaining(resource -> System.out.println("Weather condition is " + resource));

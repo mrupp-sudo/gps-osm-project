@@ -24,17 +24,17 @@ public class Server {
 
     // Runs the server to listen for incoming connections
     public void run() {
-        System.out.println("Server is listening on port " + serverSocket.getLocalPort() + "..");
+        System.out.println("SERVER: Server is listening on port " + serverSocket.getLocalPort());
         while (true) {
             try {
                 // Wait for a client to connect (blocks until a client connects or timeout occurs)
                 clientSocket = serverSocket.accept();
-                System.out.println("Client " + clientSocket + " connected");
+                System.out.println("SERVER: Client " + clientSocket + " connected");
 
                 // Handle communication with the connected client
                 communicateWithClient(clientSocket);
             } catch (SocketTimeoutException e) {
-                System.out.println("No client connected within the timeout period. Shutting down the server.");
+                System.out.println("SERVER: No client connected within the timeout period, shutting down the server");
                 break;  // Exit the loop and shut down the server after timeout
             } catch (IOException e) {
                 e.printStackTrace();
@@ -74,18 +74,16 @@ public class Server {
                 // Read client input message
                 clientMessage = in.readLine();
                 if (clientMessage != null) {
-                    System.out.println("Received from client: " + clientMessage);
-
                     // Handle 'stop' command: Valid input to terminate the connection
                     if (clientMessage.equals("stop")) {
                         out.println("Valid input");
-                        System.out.println("Stopping server connection");
+                        System.out.println("SERVER: Stopping server connection");
                         break;
 
                     // Handle 'start' command: Valid input to begin data streaming
                     } else if (clientMessage.equals("start")) {
                         out.println("Valid input");
-                        System.out.println("Start streaming of GPS track");
+                        System.out.println("SERVER: Start streaming of GPS track");
                         new Thread(dataGenerator::streamTrack).start(); // Start streaming in a new thread
 
                     // Handle invalid input by prompting again
@@ -95,7 +93,7 @@ public class Server {
 
                 // Handle client disconnection scenario
                 } else {
-                    System.out.println("Client disconnected");
+                    System.out.println("SERVER: Client disconnected");
                     break;  // Exit loop on client disconnection
                 }
             }
@@ -124,6 +122,7 @@ public class Server {
             // Callback for end-of-stream signal: informs the client of end of data
             @Override
             public void onEndOfStream() {
+            	System.out.println("SERVER: End of stream reached");
                 out.println("EOS");
             }
         });
@@ -143,11 +142,5 @@ public class Server {
         } finally {
        	 	file.delete();
         }
-    }
-
-    // Main method to start the server
-    public static void main(String[] args) {
-        Server server = new Server(5000);
-        server.run();
     }
 }
