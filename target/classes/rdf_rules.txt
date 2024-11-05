@@ -2,120 +2,159 @@
 
 # Datalog rules in RDF
 
-[yieldSign: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'highway'), 
-    (?tag ex:value 'give_way')
-    -> (?x rdf:type ex:yieldSign)
+[yieldSignRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'highway'), 
+    (?tag ex:tagValue 'give_way')
+    -> (?node rdf:type ex:yieldSign)
 ]
 
-[stopSign: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'highway'), 
-    (?tag ex:value 'stop')
-    -> (?x rdf:type ex:stopSign)
+[stopSignRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'highway'), 
+    (?tag ex:tagValue 'stop')
+    -> (?node rdf:type ex:stopSign)
 ]
 
-[trafficSignal: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'highway'), 
-    (?tag ex:value 'traffic_signals')
-    -> (?x rdf:type ex:trafficSignal)
+[trafficSignalRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'highway'), 
+    (?tag ex:tagValue 'traffic_signals')
+    -> (?node rdf:type ex:trafficSignal)
 ]
 
-[pedestrianCrossing: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'highway'), 
-    (?tag ex:value 'crossing') 
-    -> (?x rdf:type ex:pedestrianCrossing)
+[pedestrianCrossingRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'highway'), 
+    (?tag ex:tagValue 'crossing') 
+    -> (?node rdf:type ex:pedestrianCrossing)
 ]
 
-[tramCrossing: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'railway'), 
-    (?tag ex:value 'tram_level_crossing')
-    -> (?x rdf:type ex:tramCrossing)
+[tramCrossingRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'railway'), 
+    (?tag ex:tagValue 'tram_level_crossing')
+    -> (?node rdf:type ex:tramCrossing)
 ]
 
-[trainCrossing: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'railway'), 
-    (?tag ex:value 'level_crossing')
-    -> (?x rdf:type ex:trainCrossing)
+[trainCrossingRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'railway'), 
+    (?tag ex:tagValue 'level_crossing')
+    -> (?node rdf:type ex:trainCrossing)
 ]
 
-[busStation: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag1), 
-    (?tag1 ex:key 'public_transport'), 
-    (?tag1 ex:value 'stop_position'),
-    (?x ex:nodeTag ?tag2),
-    (?tag2 ex:key 'bus'), 
-    (?tag2 ex:value 'yes'),
-    noValue(?x ex:nodeTag ex:key:tram::value:yes)
-    -> (?x rdf:type ex:busStation)
+[busStationRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag1), 
+    (?tag1 ex:tagKey 'public_transport'), 
+    (?tag1 ex:tagValue 'stop_position'),
+    (?node ex:nodeTag ?tag2),
+    (?tag2 ex:tagKey 'bus'), 
+    (?tag2 ex:tagValue 'yes')
+    -> (?node rdf:type ex:busStation)
 ]
 
-[tramStation: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag1), 
-    (?tag1 ex:key 'public_transport'), 
-    (?tag1 ex:value 'stop_position'), 
-    (?x ex:nodeTag ?tag2), 
-    (?tag2 ex:key 'tram'), 
-    (?tag2 ex:value 'yes'), 
-    noValue(?x ex:nodeTag ex:key:tram::value:yes)
-    -> (?x rdf:type ex:tramStation)
+[tramStationRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag1), 
+    (?tag1 ex:tagKey 'public_transport'), 
+    (?tag1 ex:tagValue 'stop_position'), 
+    (?node ex:nodeTag ?tag2), 
+    (?tag2 ex:tagKey 'tram'), 
+    (?tag2 ex:tagValue 'yes')
+    -> (?node rdf:type ex:tramStation)
 ]
 
-[intermodalStation: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag1), 
-    (?tag1 ex:key 'public_transport'), 
-    (?tag1 ex:value 'stop_position'), 
-    (?x ex:nodeTag ?tag2), 
-    (?tag2 ex:key 'bus'), 
-    (?tag2 ex:value 'yes'), 
-    (?x ex:nodeTag ?tag3), 
-    (?tag3 ex:key 'tram'), 
-    (?tag3 ex:value 'yes') 
-    -> (?x rdf:type ex:intermodalStation)
+[intermodalStationRule: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag1), 
+    (?tag1 ex:tagKey 'public_transport'), 
+    (?tag1 ex:tagValue 'stop_position'), 
+    (?node ex:nodeTag ?tag2), 
+    (?tag2 ex:tagKey 'bus'), 
+    (?tag2 ex:tagValue 'yes'), 
+    (?node ex:nodeTag ?tag3), 
+    (?tag3 ex:tagKey 'tram'), 
+    (?tag3 ex:tagValue 'yes') 
+    -> (?node rdf:type ex:intermodalStation)
 ]
 
-[kindergarten1: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'amenity'), 
-    (?tag ex:value 'kindergarten') 
-    -> (?x rdf:type ex:kindergarten)
+[kindergartenRule1: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'amenity'), 
+    (?tag ex:tagValue 'kindergarten') 
+    -> (?node rdf:type ex:kindergarten)
 ]
 
-[kindergarten2: 
-    (?y rdf:type ex:way), 
-    (?y ex:wayTag ?tag), 
-    (?tag ex:key 'amenity'), 
-    (?tag ex:value 'kindergarten') 
-    -> (?y rdf:type ex:kindergarten)
+[kindergartenRule2: 
+    (?way rdf:type ex:way), 
+    (?way ex:wayTag ?tag), 
+    (?tag ex:tagKey 'amenity'), 
+    (?tag ex:tagValue 'kindergarten') 
+    -> (?way rdf:type ex:kindergarten)
 ]
 
-[school1: 
-    (?x rdf:type ex:node), 
-    (?x ex:nodeTag ?tag), 
-    (?tag ex:key 'amenity'), 
-    (?tag ex:value 'school') 
-    -> (?x rdf:type ex:school)
+[schoolRule1: 
+    (?node rdf:type ex:node), 
+    (?node ex:nodeTag ?tag), 
+    (?tag ex:tagKey 'amenity'), 
+    (?tag ex:tagValue 'school') 
+    -> (?node rdf:type ex:school)
 ]
 
-[school2: 
-    (?y rdf:type ex:way), 
-    (?y ex:wayTag ?tag), 
-    (?tag ex:key 'amenity'), 
-    (?tag ex:value 'school') 
-    -> (?y rdf:type ex:school)
+[schoolRule2: 
+    (?way rdf:type ex:way), 
+    (?way ex:wayTag ?tag), 
+    (?tag ex:tagKey 'amenity'), 
+    (?tag ex:tagValue 'school') 
+    -> (?way rdf:type ex:school)
+]
+
+[weatherRule1:
+    (?parameter ex:parameterKey 'temperature'), 
+    (?parameter ex:parameterValue 'freezing'),
+    makeSkolem(?condition, 'condition', 'dangerous')
+    -> (?condition ex:weatherCondition 'dangerous')
+]
+
+[weatherRule2:
+    (?parameter ex:parameterKey 'precipitation'), 
+    (?parameter ex:parameterValue 'heavy'),
+    makeSkolem(?condition, 'condition', 'dangerous')
+    -> (?condition ex:weatherCondition 'dangerous')
+]
+
+[weatherRule3:
+    (?parameter1 ex:parameterKey 'temperature'), 
+    (?parameter1 ex:parameterValue 'cold'),
+    (?parameter2 ex:parameterKey 'precipitation'), 
+    (?parameter2 ex:parameterValue 'moderate'),
+    makeSkolem(?condition, 'condition', 'challenging')
+    -> (?condition ex:weatherCondition 'challenging')
+]
+
+[weatherRule4:
+    (?parameter1 ex:parameterKey 'temperature'), 
+    (?parameter1 ex:parameterValue 'mild'),
+    (?parameter2 ex:parameterKey 'precipitation'), 
+    (?parameter2 ex:parameterValue 'no'),
+    makeSkolem(?condition, 'condition', 'harmless')
+    -> (?condition ex:weatherCondition 'harmless')
+]
+
+[weatherRule5:
+    (?parameter1 ex:parameterKey 'temperature'), 
+    (?parameter1 ex:parameterValue 'warm'),
+    (?parameter2 ex:parameterKey 'precipitation'), 
+    (?parameter2 ex:parameterValue 'no'),
+    makeSkolem(?condition, 'condition', 'harmless')
+    -> (?condition ex:weatherCondition 'harmless')
 ]
