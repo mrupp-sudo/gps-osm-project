@@ -66,6 +66,7 @@ public class Client {
                         System.out.println("CLIENT: Receiving and processing facts");
                         receiveAndProcessFacts();
                     } else if (serverMessage.equals("EOS")) {
+                    	System.out.println("CLIENT: End of stream reached");
                         break;
                     }
                 } else {
