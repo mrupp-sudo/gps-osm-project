@@ -122,7 +122,6 @@ public class Server {
             // Callback for end-of-stream signal: informs the client of end of data
             @Override
             public void onEndOfStream() {
-            	System.out.println("SERVER: End of stream reached");
                 out.println("EOS");
             }
         });
