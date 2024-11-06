@@ -12,6 +12,9 @@ public class DatalogReasoner {
 
     private final String RULES_FILE_PATH = "src/main/resources/rdf_rules.txt"; // File path to rules
     private final String NAMESPACE = "http://example.org#"; // Namespace URI for resource definitions
+    
+    static final String GREEN = "\u001B[92m";
+    static final String RESET = "\u001B[0m";
 
     private Model model; // Core model for storing RDF data
     private InfModel infModel; // Inference model using rules
@@ -22,7 +25,7 @@ public class DatalogReasoner {
         List<Rule> rulesList = Rule.rulesFromURL(RULES_FILE_PATH);
 
         GenericRuleReasoner reasoner = new GenericRuleReasoner(rulesList); // Initialize reasoner with loaded rules
-        reasoner.setMode(GenericRuleReasoner.FORWARD_RETE); // Set to hybrid mode for efficiency
+        reasoner.setMode(GenericRuleReasoner.HYBRID); // Set to hybrid mode for efficiency
 
         this.infModel = ModelFactory.createInfModel(reasoner, this.model); // Initialize inference model
     }
@@ -49,67 +52,75 @@ public class DatalogReasoner {
 
     // Queries the inference model and prints inferred facts
     public void queryInferences() {
-        System.out.println("Inferred Yield Signs:");
+        System.out.println("CLIENT: Inferred Yield Signs:");
         Resource yieldSign = infModel.createResource(NAMESPACE + "yieldSign");
         infModel.listSubjectsWithProperty(RDF.type, yieldSign)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Yield Sign"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Stop Signs:");
+        System.out.println("CLIENT: Inferred Stop Signs:");
         Resource stopSign = infModel.createResource(NAMESPACE + "stopSign");
         infModel.listSubjectsWithProperty(RDF.type, stopSign)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Stop Sign"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Traffic Signals:");
+        System.out.println("CLIENT: Inferred Traffic Signals:");
         Resource trafficSignal = infModel.createResource(NAMESPACE + "trafficSignal");
         infModel.listSubjectsWithProperty(RDF.type, trafficSignal)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Traffic Signal"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Pedestrian Crossings:");
+        System.out.println("CLIENT: Inferred Pedestrian Crossings:");
         Resource pedestrianCrossing = infModel.createResource(NAMESPACE + "pedestrianCrossing");
         infModel.listSubjectsWithProperty(RDF.type, pedestrianCrossing)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Pedestrian Crossing"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Tram Crossings:");
+        System.out.println("CLIENT: Inferred Tram Crossings:");
         Resource tramCrossing = infModel.createResource(NAMESPACE + "tramCrossing");
         infModel.listSubjectsWithProperty(RDF.type, tramCrossing)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Tram Crossing"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Train Crossings:");
+        System.out.println("CLIENT: Inferred Train Crossings:");
         Resource trainCrossing = infModel.createResource(NAMESPACE + "trainCrossing");
         infModel.listSubjectsWithProperty(RDF.type, trainCrossing)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Train Crossing"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Bus Stations:");
+        System.out.println("CLIENT: Inferred Bus Stations:");
         Resource busStation = infModel.createResource(NAMESPACE + "busStation");
         infModel.listSubjectsWithProperty(RDF.type, busStation)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Bus Station"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Tram Stations:");
+        System.out.println("CLIENT: Inferred Tram Stations:");
         Resource tramStation = infModel.createResource(NAMESPACE + "tramStation");
         infModel.listSubjectsWithProperty(RDF.type, tramStation)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Tram Station"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Intermodal Stations:");
+        System.out.println("CLIENT: Inferred Intermodal Stations:");
         Resource intermodalStation = infModel.createResource(NAMESPACE + "intermodalStation");
         infModel.listSubjectsWithProperty(RDF.type, intermodalStation)
-            .forEachRemaining(resource -> System.out.println(resource + " is an Intermodal Station"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Kindergartens:");
+        System.out.println("CLIENT: Inferred Kindergartens:");
         Resource kindergarten = infModel.createResource(NAMESPACE + "kindergarten");
         infModel.listSubjectsWithProperty(RDF.type, kindergarten)
-            .forEachRemaining(resource -> System.out.println(resource + " is a Kindergarten"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Schools:");
+        System.out.println("CLIENT: Inferred Schools:");
         Resource school = infModel.createResource(NAMESPACE + "school");
         infModel.listSubjectsWithProperty(RDF.type, school)
-            .forEachRemaining(resource -> System.out.println(resource + " is a School"));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
         
-        System.out.println("Inferred Weather Condition:");
+        System.out.println("CLIENT: Inferred Weather Condition:");
         Property weatherCondition = infModel.createProperty(NAMESPACE + "weatherCondition");
         infModel.listObjectsOfProperty(weatherCondition)
-            .forEachRemaining(resource -> System.out.println("Weather condition is " + resource));
+            .forEachRemaining(resource -> System.out.println("    " + GREEN + resource + RESET));
     }
-   
+    
+    // Strips the namespace from a resource URI
+    private String stripNamespace(Resource resource) {
+    	String uri = resource.toString();
+        if (uri.startsWith(NAMESPACE)) {
+            return uri.substring(NAMESPACE.length());
+        }
+        return uri;
+    }
 
     // Parses individual fact strings
     private Statement[] parseFact(String fact) {
