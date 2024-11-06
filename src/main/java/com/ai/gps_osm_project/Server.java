@@ -138,8 +138,6 @@ public class Server {
             out.println("EOF");  // Send "End of File" signal after all lines are sent
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-       	 	file.delete();
         }
     }
 }

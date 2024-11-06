@@ -24,6 +24,7 @@ public class DataGenerator {
 
     private final String TRACK_FILE_PATH = "src/main/resources/track.gpx"; // File path to GPX data
     private final int RADIUS = 100; // Specify radius of accessed data around trackpoints
+    private final String FACTS_FOLDER_PATH = "src/main/resources/facts"; // Folder for storing facts files
     
     private GPX gpx;
     private Stream<WayPoint> pointsStream;
@@ -53,6 +54,12 @@ public class DataGenerator {
         overpass = new OverpassMapDataApi(connection);
         
         weatherService = new WeatherService(); // Initialize Open-Meteo connection for weather data queries
+        
+        // Create facts folder if it doesn't exist
+        File factsFolder = new File(FACTS_FOLDER_PATH);
+        if (!factsFolder.exists()) {
+            factsFolder.mkdirs();
+        }
     }
 
     // Set a listener for streaming events
@@ -84,6 +91,17 @@ public class DataGenerator {
                 .replace("Ü", "Ue")
                 .replace("ß", "ss")
                 .replace("\"", "'");
+    }
+    
+    // Generates a unique facts file path with meta information
+    private String generateFactsFilePath(WayPoint currentPoint) {
+        String timestamp = currentPoint.getTime().orElse(Instant.now()).toString().replace(":", ".");
+        String latitude = String.format("%.6f", currentPoint.getLatitude().floatValue()).replace(",", ".");
+        String longitude = String.format("%.6f", currentPoint.getLongitude().floatValue()).replace(",", ".");
+
+        // Meta information for the file
+        String fileName = String.format("facts_%sLAT_%sLON_%s_%dR.pl", latitude, longitude, timestamp, RADIUS);
+        return FACTS_FOLDER_PATH + File.separator + fileName;
     }
 
     // Writes facts by identifying changes in map and weather data
@@ -295,7 +313,7 @@ public class DataGenerator {
         // Query Open-Meteo for weather data
 		weatherHandler = weatherService.queryWeather(currentPoint.getTime().orElse(null).toString(), currentPoint.getLatitude().doubleValue(), currentPoint.getLongitude().doubleValue());
         
-        String factsFilePath = "src/main/resources/sent_facts.pl";
+        String factsFilePath = generateFactsFilePath(currentPoint);
         writeFacts(factsFilePath);
         if (streamListener != null) {
             streamListener.onFactsCreated(new File(factsFilePath));
