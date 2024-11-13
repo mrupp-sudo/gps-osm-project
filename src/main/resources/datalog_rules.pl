@@ -246,3 +246,17 @@ school(X) :-
 school(Y) :-
 	way(Y),
 	wayTag(Y, "amenity", "school").
+weatherCondition("dangerous") :-
+	(
+        	weatherParameter("temperature", "freezing");
+        	weatherParameter("precipitation", "heavy")
+	).
+weatherCondition("challenging") :-
+        weatherParameter("temperature", "cold"),
+        weatherParameter("precipitation", "moderate").
+weatherCondition("harmless") :-
+	(
+        	weatherParameter("temperature", "mild");
+        	weatherParameter("temperature", "warm")
+	),
+	weatherParameter("precipitation", "no").
