@@ -66,13 +66,13 @@ isReachable(X2) :-
 isReachable(X3) :-
 	isReachable(X1),
 	isReachable(X2),
-	intersection(X1, X2, X3).
-intersection(X1, X2, X3) :-
+	roadConnection(X1, X2, X3).
+roadConnection(X1, X2, X3) :-
 	roadSegment(X1, X2, _),
 	roadSegment(X2, X3, _),
 	\+ forbiddenDirection(X1, X2, X3),
 	\+ mandatoryDirectionExists(X1, X2).
-intersection(X1, X2, X3) :-
+roadConnection(X1, X2, X3) :-
 	mandatoryDirection(X1, X2, X3).
 rightTurnRestriction(X1, X2, X3) :-
     relation(R),
