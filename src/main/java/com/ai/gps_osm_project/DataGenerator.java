@@ -29,6 +29,7 @@ public class DataGenerator {
     private GPX gpx;
     private Stream<WayPoint> pointsStream;
     private Iterator<WayPoint> iterator;
+    private int trackPointCounter;
     private OsmConnection connection;
     private OverpassMapDataApi overpass;
     private WeatherService weatherService;
@@ -48,6 +49,7 @@ public class DataGenerator {
                 .flatMap(Track::segments)
                 .flatMap(TrackSegment::points);
         iterator = pointsStream.iterator();
+        trackPointCounter = 0;
 
         // Initialize Overpass connection for map data queries
         connection = new OsmConnection("https://overpass-api.de/api/", "my user agent");
@@ -68,13 +70,13 @@ public class DataGenerator {
     }
 
     // Checks if another track point exists
-    private boolean nextPointExists() {
+    private boolean nextTrackPointExists() {
         return iterator.hasNext();
     }
 
     // Gets the next point from the track iterator
-    private WayPoint getPoint() {
-        if (nextPointExists()) {
+    private WayPoint getTrackPoint() {
+        if (nextTrackPointExists()) {
             return iterator.next();
         }
         return null;
@@ -95,12 +97,14 @@ public class DataGenerator {
     
     // Generates a unique facts file path with meta information
     private String generateFactsFilePath(WayPoint currentPoint) {
-        String timestamp = currentPoint.getTime().orElse(Instant.now()).toString().replace(":", ".");
+        String timestamp = currentPoint.getTime().orElse(Instant.now()).toString()
+        		.replace(":", ".").replace("T", "_").replace("Z", "");
         String latitude = String.format("%.6f", currentPoint.getLatitude().floatValue()).replace(",", ".");
         String longitude = String.format("%.6f", currentPoint.getLongitude().floatValue()).replace(",", ".");
 
         // Meta information for the file
-        String fileName = String.format("facts_%sLAT_%sLON_%s_%dR.pl", latitude, longitude, timestamp, RADIUS);
+        String fileName = String.format("%d_facts_%s_%s_%s_%d.pl", 
+                trackPointCounter, latitude, longitude, timestamp, RADIUS);
         return FACTS_FOLDER_PATH + File.separator + fileName;
     }
 
@@ -262,8 +266,8 @@ public class DataGenerator {
         previousWeatherHandler = new WeatherHandler();
         WayPoint previousPoint = null;
 
-        while (nextPointExists()) {
-            WayPoint currentPoint = getPoint();
+        while (nextTrackPointExists()) {
+            WayPoint currentPoint = getTrackPoint();
             if (currentPoint != null) {
                 mapHandler = new CustomMapDataHandler(currentPoint);
                 weatherHandler = null;
@@ -310,11 +314,14 @@ public class DataGenerator {
         // Query Overpass for map data
     	String query = "nwr(around:" + RADIUS + "," + currentPoint.getLatitude() + "," + currentPoint.getLongitude() + "); out body;";
         overpass.queryElements(query, mapHandler);
+        
         // Query Open-Meteo for weather data
 		weatherHandler = weatherService.queryWeather(currentPoint.getTime().orElse(null).toString(), currentPoint.getLatitude().doubleValue(), currentPoint.getLongitude().doubleValue());
         
         String factsFilePath = generateFactsFilePath(currentPoint);
         writeFacts(factsFilePath);
+        trackPointCounter++;
+        
         if (streamListener != null) {
             streamListener.onFactsCreated(new File(factsFilePath));
         }
