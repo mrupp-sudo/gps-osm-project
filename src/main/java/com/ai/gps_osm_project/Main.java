@@ -9,8 +9,8 @@ public class Main {
       serverThread.start();
 
       // Start the client in another thread
-      Client client = new Client();
-      Thread clientThread = new Thread(() -> client.connect("localhost", 5000));
-      clientThread.start();
+      //Client client = new Client();
+      //Thread clientThread = new Thread(() -> client.connect("localhost", 5000));
+      //clientThread.start();
 	}
 }

@@ -30,13 +30,13 @@ public class DatalogReasoner {
         this.infModel = ModelFactory.createInfModel(reasoner, this.model); // Initialize inference model
     }
     
-    // Loads facts from a file, parses each fact, and applies it to the model
+    // Load facts from a file, parse each fact, and apply it to the model
     public void loadFacts(String factFilePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(factFilePath))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String fact = line.trim();
-                // Processes 'add' or 'delete' facts by parsing and updating the model
+                // Process 'add' or 'delete' facts by parsing and updating the model
                 if (fact.startsWith("add(")) {
                     String actualFact = fact.substring(4, fact.length() - 1);
                     infModel.add(parseFact(actualFact));
@@ -50,7 +50,7 @@ public class DatalogReasoner {
         }
     }
 
-    // Queries the inference model and prints inferred facts
+    // Query the inference model and print inferred facts
     public void queryInferences() {
         System.out.println("CLIENT: Inferred Yield Signs:");
         Resource yieldSign = infModel.createResource(NAMESPACE + "yieldSign");
@@ -113,7 +113,7 @@ public class DatalogReasoner {
             .forEachRemaining(resource -> System.out.println("    " + GREEN + resource + RESET));
     }
     
-    // Strips the namespace from a resource URI
+    // Strip the namespace from a resource URI
     private String stripNamespace(Resource resource) {
     	String uri = resource.toString();
         if (uri.startsWith(NAMESPACE)) {
@@ -122,7 +122,7 @@ public class DatalogReasoner {
         return uri;
     }
 
-    // Parses individual fact strings
+    // Parse individual fact strings
     private Statement[] parseFact(String fact) {
         if (fact.startsWith("position(")) {
             String id = fact.substring(9, fact.length() - 2);
@@ -230,7 +230,7 @@ public class DatalogReasoner {
         return null;
     }
 
-    // Splits a fact string intelligently, accounting for quotes around strings
+    // Split a fact string intelligently, accounting for quotes around strings
     private String[] smartSplit(String input) {
         List<String> parts = new ArrayList<>();
         boolean insideQuotes = false;

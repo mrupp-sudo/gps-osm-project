@@ -23,7 +23,7 @@ import io.jenetics.jpx.WayPoint;
 public class DataGenerator {
 
     private final String TRACK_FILE_PATH = "src/main/resources/track.gpx"; // File path to GPX data
-    private final int RADIUS = 100; // Specify radius of accessed data around trackpoints
+    private final int RADIUS = 50; // Specify radius of accessed data around trackpoints
     private final String FACTS_FOLDER_PATH = "src/main/resources/facts"; // Folder for storing facts files
     
     private GPX gpx;
@@ -69,12 +69,12 @@ public class DataGenerator {
         this.streamListener = streamListener;
     }
 
-    // Checks if another track point exists
+    // Check if another track point exists
     private boolean nextTrackPointExists() {
         return iterator.hasNext();
     }
 
-    // Gets the next point from the track iterator
+    // Get the next point from the track iterator
     private WayPoint getTrackPoint() {
         if (nextTrackPointExists()) {
             return iterator.next();
@@ -82,7 +82,7 @@ public class DataGenerator {
         return null;
     }
 
-    // Replaces invalid characters in tags to ensure compatibility
+    // Replace invalid characters in tags to ensure compatibility
     private String replaceInvalidCharacters(String input) {
         return input
                 .replace("ä", "ae")
@@ -95,7 +95,7 @@ public class DataGenerator {
                 .replace("\"", "'");
     }
     
-    // Generates a unique facts file path with meta information
+    // Generate a unique facts file path with meta information
     private String generateFactsFilePath(WayPoint currentPoint) {
         String timestamp = currentPoint.getTime().orElse(Instant.now()).toString()
         		.replace(":", ".").replace("T", "_").replace("Z", "");
@@ -108,7 +108,7 @@ public class DataGenerator {
         return FACTS_FOLDER_PATH + File.separator + fileName;
     }
 
-    // Writes facts by identifying changes in map and weather data
+    // Write facts by identifying changes in map and weather data
     private void writeFacts(String factsFilePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(factsFilePath))) {
             Node newClosestRoadNode = mapHandler.findClosestRoadNode();
@@ -141,7 +141,7 @@ public class DataGenerator {
         }
     }
 
-    // Writes deleted facts for map and weather data
+    // Write deleted facts for map and weather data
     private void writeDeletedFacts(BufferedWriter writer, Node deletedClosestRoadNode, List<Node> deletedNodes, List<Way> deletedWays, List<Relation> deletedRelations, String deletedTemperatureCategory, String deletedPrecipitationCategory) throws IOException {
         if (deletedClosestRoadNode != null) {
             writer.write(String.format("delete(position(%d)).\n", deletedClosestRoadNode.getId()));
@@ -200,7 +200,7 @@ public class DataGenerator {
         }
     }
 
-    // Writes new facts for map and weather data
+    // Write new facts for map and weather data
     private void writeNewFacts(BufferedWriter writer, Node newClosestRoadNode, List<Node> newNodes, List<Way> newWays, List<Relation> newRelations, String newTemperatureCategory, String newPrecipitationCategory) throws IOException {
         if (newClosestRoadNode != null) {
             writer.write(String.format("add(position(%d)).\n", newClosestRoadNode.getId()));
@@ -260,7 +260,7 @@ public class DataGenerator {
     }
 
 
-    // Streams GPS track, queries map and weather data, and triggers fact-writing at each trackpoint
+    // Stream GPS track, query map and weather data, and trigger fact-writing at each trackpoint
     public void streamTrack() {
         previousMapHandler = new CustomMapDataHandler();
         previousWeatherHandler = new WeatherHandler();
@@ -289,7 +289,7 @@ public class DataGenerator {
         notifyEndOfStream();
     }
 
-    // Sleeps for the duration between trackpoints to simulate driving
+    // Sleep for the duration between trackpoints to simulate driving
     private void sleepBetweenPoints(WayPoint previousPoint, WayPoint currentPoint) {
         Optional<Instant> previousTime = previousPoint.getTime();
         Optional<Instant> currentTime = currentPoint.getTime();
@@ -309,7 +309,7 @@ public class DataGenerator {
         }
     }
 
-    // Queries map and weather data and updates facts for the current track point
+    // Query map and weather data and update facts for the current track point
     private void queryAndUpdateFacts(WayPoint currentPoint) {
         // Query Overpass for map data
     	String query = "nwr(around:" + RADIUS + "," + currentPoint.getLatitude() + "," + currentPoint.getLongitude() + "); out body;";
@@ -327,7 +327,7 @@ public class DataGenerator {
         }
     }
 
-    // Notifies end of stream to the listener
+    // Notify end of stream to the listener
     private void notifyEndOfStream() {
         if (streamListener != null) {
             streamListener.onEndOfStream();

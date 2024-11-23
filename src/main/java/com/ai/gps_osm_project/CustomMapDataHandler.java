@@ -22,7 +22,7 @@ public class CustomMapDataHandler implements MapDataHandler {
     private List<Node> nodes;
     private List<Way> ways;
     private List<Relation> relations;
-    private Node closestRoadNode; // Stores the closest road node to the given trackpoint
+    private Node closestRoadNode; // Store the closest road node to the given trackpoint
 
     public CustomMapDataHandler() {
         nodes = new ArrayList<>();
@@ -42,40 +42,40 @@ public class CustomMapDataHandler implements MapDataHandler {
         // Placeholder for handling BoundingBox
     }
 
-    // Adds the provided node to the list of nodes
+    // Add the provided node to the list of nodes
     @Override
     public void handle(Node node) {
         nodes.add(node);
     }
 
-    // Adds the provided way to the list of ways
+    // Add the provided way to the list of ways
     @Override
     public void handle(Way way) {
         ways.add(way);
     }
 
-    // Adds the provided relation to the list of relations
+    // Add the provided relation to the list of relations
     @Override
     public void handle(Relation relation) {
         relations.add(relation);
     }
 
-    // Returns the list of nodes in the map
+    // Return the list of nodes in the map
     public List<Node> getNodes() {
         return nodes;
     }
 
-    // Returns the list of ways in the map
+    // Return the list of ways in the map
     public List<Way> getWays() {
         return ways;
     }
 
-    // Returns the list of relations in the map
+    // Return the list of relations in the map
     public List<Relation> getRelations() {
         return relations;
     }
 
-    // Finds nodes present in the current map data that are not in the data of the other handler
+    // Find nodes present in the current map data that are not in the data of the other handler
     public List<Node> getNewNodes(CustomMapDataHandler other) {
         Set<Long> otherNodeIds = new HashSet<>();
         for (Node otherNode : other.getNodes()) {
@@ -91,7 +91,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return newNodes; // List of nodes unique to the current handler
     }
 
-    // Finds nodes that are in the other handler but not in the current map data
+    // Find nodes that are in the other handler but not in the current map data
     public List<Node> getDeletedNodes(CustomMapDataHandler other) {
         Set<Long> currentNodeIds = new HashSet<>();
         for (Node node : nodes) {
@@ -107,7 +107,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return deletedNodes; // List of nodes removed from the current handler
     }
 
-    // Finds ways present in the current map data that are not in the data of the other handler
+    // Find ways present in the current map data that are not in the data of the other handler
     public List<Way> getNewWays(CustomMapDataHandler other) {
         Set<Long> otherWayIds = new HashSet<>();
         for (Way way : other.getWays()) {
@@ -123,7 +123,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return newWays; // List of ways unique to the current handler
     }
 
-    // Finds ways that are in the other handler but not in the current map data
+    // Find ways that are in the other handler but not in the current map data
     public List<Way> getDeletedWays(CustomMapDataHandler other) {
         Set<Long> currentWayIds = new HashSet<>();
         for (Way way : ways) {
@@ -139,7 +139,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return deletedWays; // List of ways removed from the current handler
     }
 
-    // Finds relations present in the current map data that are not in the data of the other handler
+    // Find relations present in the current map data that are not in the data of the other handler
     public List<Relation> getNewRelations(CustomMapDataHandler other) {
         Set<Long> otherRelationIds = new HashSet<>();
         for (Relation relation : other.getRelations()) {
@@ -155,7 +155,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return newRelations; // List of relations unique to the current handler
     }
 
-    // Finds relations that are in the other handler but not in the current map data
+    // Find relations that are in the other handler but not in the current map data
     public List<Relation> getDeletedRelations(CustomMapDataHandler other) {
         Set<Long> currentRelationIds = new HashSet<>();
         for (Relation relation : relations) {
@@ -171,7 +171,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return deletedRelations; // List of relations removed from the current handler
     }
 
-    // Finds the closest road node to the given trackpoint, filtering only suitable car roads
+    // Find the closest road node to the given trackpoint, filtering only suitable car roads
     public Node findClosestRoadNode() {
         closestRoadNode = null;
         double shortestDistance = Double.MAX_VALUE;
@@ -203,7 +203,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return closestRoadNode; // Return the closest road node, if found
     }
 
-    // Checks if a way is suitable for cars based on tags and access restrictions
+    // Check if a way is suitable for cars based on tags and access restrictions
     private boolean isCarRoad(Map<String, String> tags) {
         String highway = tags.get("highway");
         if (highway == null) return false;
@@ -241,7 +241,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return true; // If all checks pass, it is a valid car road
     }
 
-    // Finds a node by its ID in the list of nodes
+    // Find a node by its ID in the list of nodes
     private Node findNodeById(List<Node> nodes, long nodeId) {
         for (Node node : nodes) {
             if (node.getId() == nodeId) {
@@ -251,7 +251,7 @@ public class CustomMapDataHandler implements MapDataHandler {
         return null; // Node not found, return null
     }
     
-    // Returns the closest road node to the given trackpoint
+    // Return the closest road node to the given trackpoint
     public Node getClosestRoadNode() {
         return closestRoadNode;
     }

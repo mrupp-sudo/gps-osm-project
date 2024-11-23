@@ -15,17 +15,17 @@ public class Client {
         this.datalogReasoner = new DatalogReasoner();
     }
 
-    // Connects to the server at the specified host and port
+    // Connect to the server at the specified host and port
     public void connect(String host, int port) {
         try {
-            socket = new Socket(host, port); // Establishes a socket connection to the server
+            socket = new Socket(host, port); // Establish a socket connection to the server
             System.out.println("CLIENT: Client connected to server [" + host + " on port " + port + "]");
             
             // Set up input and output streams for server communication
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
 
-            // Initiates communication protocol with the server
+            // Initiate communication protocol with the server
             communicateWithServer();
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,30 +38,30 @@ public class Client {
         }
     }
 
-    // Manages communication with the server, handling inputs and outputs
+    // Manage communication with the server, handling inputs and outputs
     private void communicateWithServer() {
         try {
             String serverMessage;
-            boolean validInput = false; // Tracks if the server accepted the user's input
+            boolean validInput = false; // Track if the server accepted the user's input
 
-            // Continuously listens for messages from the server
+            // Continuously listen for messages from the server
             while (true) {
                 serverMessage = in.readLine();
                 if (serverMessage != null) {
 
-                    // Checks if server indicates valid input received
+                    // Check if server indicates valid input received
                     if (serverMessage.equals("Valid input")) {
                         validInput = true;
                     }
 
-                    // Prompts user for input if valid input has not been received
+                    // Prompt user for input if valid input has not been received
                     if (!validInput) {
                         System.out.println("CLIENT: " + serverMessage);
                         String userInput = getUserInput();      
                         out.println(userInput);                 
                     }
 
-                    // Initiates fact data streaming from server if indicated
+                    // Initiate fact data streaming from server if indicated
                     if (serverMessage.equals("SENDING FACTS")) {
                         System.out.println("CLIENT: Receiving and processing facts");
                         receiveAndProcessFacts();
@@ -79,7 +79,7 @@ public class Client {
         }
     }
 
-    // Collects user input from the console for server communication
+    // Collect user input from the console for server communication
     private String getUserInput() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -90,21 +90,21 @@ public class Client {
         }
     }
 
-    // Receives streamed facts from the server, writes to file, and processes with reasoner
+    // Receive streamed facts from the server, write to file, and process with reasoner
     private void receiveAndProcessFacts() {
         String factFilePath = "src/main/resources/received_facts.txt";
         try {
             String line;
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(factFilePath));
 
-            // Writes each fact line from the server to the file
+            // Write each fact line from the server to the file
             while (!(line = in.readLine()).equals("EOF")) {
                 fileWriter.write(line);
                 fileWriter.newLine();
             }
             fileWriter.close();
 
-            // Loads facts into reasoner and performs inference operations
+            // Load facts into reasoner and perform inference operations
             datalogReasoner.loadFacts(factFilePath);
             datalogReasoner.queryInferences();
 
