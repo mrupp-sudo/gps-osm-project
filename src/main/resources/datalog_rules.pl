@@ -1,251 +1,251 @@
 % Datalog rules
-roadSegment(X1, X2, Y) :-
-	node(X1),
-	node(X2),
-	nextInWay(X1, X2, Y),
-	way(Y),
+roadSegment(Node1_ID, Node2_ID, Way_ID) :-
+	node(Node1_ID),
+	node(Node2_ID),
+	nextInWay(Node1_ID, Node2_ID, Way_ID),
+	way(Way_ID),
 	(
-		wayTag(Y, "highway", "motorway");
-		wayTag(Y, "highway", "trunk");
-		wayTag(Y, "highway", "primary");
-		wayTag(Y, "highway", "secondary");
-		wayTag(Y, "highway", "tertiary");
-		wayTag(Y, "highway", "unclassified");
-		wayTag(Y, "highway", "residential");
-		wayTag(Y, "highway", "motorway_link");
-		wayTag(Y, "highway", "trunk_link");
-		wayTag(Y, "highway", "primary_link");
-		wayTag(Y, "highway", "secondary_link");
-		wayTag(Y, "highway", "tertiary_link");
-		wayTag(Y, "highway", "living_street");
-		wayTag(Y, "highway", "service")
+		wayTag(Way_ID, "highway", "motorway");
+		wayTag(Way_ID, "highway", "trunk");
+		wayTag(Way_ID, "highway", "primary");
+		wayTag(Way_ID, "highway", "secondary");
+		wayTag(Way_ID, "highway", "tertiary");
+		wayTag(Way_ID, "highway", "unclassified");
+		wayTag(Way_ID, "highway", "residential");
+		wayTag(Way_ID, "highway", "motorway_link");
+		wayTag(Way_ID, "highway", "trunk_link");
+		wayTag(Way_ID, "highway", "primary_link");
+		wayTag(Way_ID, "highway", "secondary_link");
+		wayTag(Way_ID, "highway", "tertiary_link");
+		wayTag(Way_ID, "highway", "living_street");
+		wayTag(Way_ID, "highway", "service")
 	),
-	\+ wayTag(Y, "motor_vehicle", "no"),
-	\+ wayTag(Y, "motor_vehicle", "private"),
-	\+ wayTag(Y, "motor_vehicle", "psv"),
-	\+ wayTag(Y, "vehicle", "no"),
-	\+ wayTag(Y, "vehicle", "private"),
-	\+ wayTag(Y, "access", "no"),
-	\+ wayTag(Y, "access", "private"),
-	\+ wayTag(Y, "oneway", "-1").
-roadSegment(X2, X1, Y) :-
-	node(X1),
-	node(X2),
-	nextInWay(X1, X2, Y),
-	way(Y),
+	\+ wayTag(Way_ID, "motor_vehicle", "no"),
+	\+ wayTag(Way_ID, "motor_vehicle", "private"),
+	\+ wayTag(Way_ID, "motor_vehicle", "psv"),
+	\+ wayTag(Way_ID, "vehicle", "no"),
+	\+ wayTag(Way_ID, "vehicle", "private"),
+	\+ wayTag(Way_ID, "access", "no"),
+	\+ wayTag(Way_ID, "access", "private"),
+	\+ wayTag(Way_ID, "oneway", "-1").
+roadSegment(Node2_ID, Node1_ID, Way_ID) :-
+	node(Node1_ID),
+	node(Node2_ID),
+	nextInWay(Node1_ID, Node2_ID, Way_ID),
+	way(Way_ID),
 	(
-		wayTag(Y, "highway", "motorway");
-		wayTag(Y, "highway", "trunk");
-		wayTag(Y, "highway", "primary");
-		wayTag(Y, "highway", "secondary");
-		wayTag(Y, "highway", "tertiary");
-		wayTag(Y, "highway", "unclassified");
-		wayTag(Y, "highway", "residential");
-		wayTag(Y, "highway", "motorway_link");
-		wayTag(Y, "highway", "trunk_link");
-		wayTag(Y, "highway", "primary_link");
-		wayTag(Y, "highway", "secondary_link");
-		wayTag(Y, "highway", "tertiary_link");
-		wayTag(Y, "highway", "living_street");
-		wayTag(Y, "highway", "service")
+		wayTag(Way_ID, "highway", "motorway");
+		wayTag(Way_ID, "highway", "trunk");
+		wayTag(Way_ID, "highway", "primary");
+		wayTag(Way_ID, "highway", "secondary");
+		wayTag(Way_ID, "highway", "tertiary");
+		wayTag(Way_ID, "highway", "unclassified");
+		wayTag(Way_ID, "highway", "residential");
+		wayTag(Way_ID, "highway", "motorway_link");
+		wayTag(Way_ID, "highway", "trunk_link");
+		wayTag(Way_ID, "highway", "primary_link");
+		wayTag(Way_ID, "highway", "secondary_link");
+		wayTag(Way_ID, "highway", "tertiary_link");
+		wayTag(Way_ID, "highway", "living_street");
+		wayTag(Way_ID, "highway", "service")
 	),
-	\+ wayTag(Y, "motor_vehicle", "no"),
-	\+ wayTag(Y, "motor_vehicle", "private"),
-	\+ wayTag(Y, "motor_vehicle", "psv"),
-	\+ wayTag(Y, "vehicle", "no"),
-	\+ wayTag(Y, "vehicle", "private"),
-	\+ wayTag(Y, "access", "no"),
-	\+ wayTag(Y, "access", "private"),
-	\+ wayTag(Y, "oneway", "yes").
-isReachable(X) :-
-	node(X),
-	position(X).
-isReachable(X2) :-
-	position(X1),
-	roadSegment(X1, X2, _).
-isReachable(X3) :-
-	isReachable(X1),
-	isReachable(X2),
-	roadConnection(X1, X2, X3).
-roadConnection(X1, X2, X3) :-
-	roadSegment(X1, X2, _),
-	roadSegment(X2, X3, _),
-	\+ forbiddenDirection(X1, X2, X3),
-	\+ mandatoryDirectionExists(X1, X2).
-roadConnection(X1, X2, X3) :-
-	mandatoryDirection(X1, X2, X3).
-rightTurnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "no_right_turn"),
+	\+ wayTag(Way_ID, "motor_vehicle", "no"),
+	\+ wayTag(Way_ID, "motor_vehicle", "private"),
+	\+ wayTag(Way_ID, "motor_vehicle", "psv"),
+	\+ wayTag(Way_ID, "vehicle", "no"),
+	\+ wayTag(Way_ID, "vehicle", "private"),
+	\+ wayTag(Way_ID, "access", "no"),
+	\+ wayTag(Way_ID, "access", "private"),
+	\+ wayTag(Way_ID, "oneway", "yes").
+isReachable(Node_ID) :-
+	node(Node_ID),
+	position(Node_ID).
+isReachable(Node2_ID) :-
+	position(Node1_ID),
+	roadSegment(Node1_ID, Node2_ID, _).
+isReachable(Node3_ID) :-
+	isReachable(Node1_ID),
+	isReachable(Node2_ID),
+	roadConnection(Node1_ID, Node2_ID, Node3_ID).
+roadConnection(Node1_ID, Node2_ID, Node3_ID) :-
+	roadSegment(Node1_ID, Node2_ID, _),
+	roadSegment(Node2_ID, Node3_ID, _),
+	\+ forbiddenDirection(Node1_ID, Node2_ID, Node3_ID),
+	\+ mandatoryDirectionExists(Node1_ID, Node2_ID).
+roadConnection(Node1_ID, Node2_ID, Node3_ID) :-
+	mandatoryDirection(Node1_ID, Node2_ID, Node3_ID).
+rightTurnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "no_right_turn"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-onlyRightTurnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "only_right_turn"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+onlyRightTurnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+   	relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "only_right_turn"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-leftTurnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "no_left_turn"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+leftTurnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "no_left_turn"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-onlyLeftTurnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "only_left_turn"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+onlyLeftTurnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "only_left_turn"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-straightOnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "no_straight_on"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+straightOnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "no_straight_on"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-onlyStraightOnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "only_straight_on"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+onlyStraightOnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "only_straight_on"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-uTurnRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "no_u_turn"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+uTurnRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "no_u_turn"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-entryRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "no_entry"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+entryRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "no_entry"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-exitRestriction(X1, X2, X3) :-
-    relation(R),
-    relationTag(R, "restriction", "no_exit"),
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+exitRestriction(Node1_ID, Node2_ID, Node3_ID) :-
+    relation(Relation_ID),
+    relationTag(Relation_ID, "restriction", "no_exit"),
     (
-        relationMember(Y1, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y1, "way", "via", R)
+        relationMember(Way1_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way1_ID, "way", "via", Relation_ID)
     ),
-    relationMember(Y2, "way", "to", R),
-    roadSegment(X1, X2, Y1),
-    roadSegment(X2, X3, Y2).
-forbiddenDirection(X1, X2, X3) :-
+    relationMember(Way2_ID, "way", "to", Relation_ID),
+    roadSegment(Node1_ID, Node2_ID, Way1_ID),
+    roadSegment(Node2_ID, Node3_ID, Way2_ID).
+forbiddenDirection(Node1_ID, Node2_ID, Node3_ID) :-
 	(
-		rightTurnRestriction(X1, X2, X3);
-		leftTurnRestriction(X1, X2, X3);
-		straightOnRestriction(X1, X2, X3);
-		uTurnRestriction(X1, X2, X3);
-		entryRestriction(X1, X2, X3);
-		exitRestriction(X1, X2, X3)
+		rightTurnRestriction(Node1_ID, Node2_ID, Node3_ID);
+		leftTurnRestriction(Node1_ID, Node2_ID, Node3_ID);
+		straightOnRestriction(Node1_ID, Node2_ID, Node3_ID);
+		uTurnRestriction(Node1_ID, Node2_ID, Node3_ID);
+		entryRestriction(Node1_ID, Node2_ID, Node3_ID);
+		exitRestriction(Node1_ID, Node2_ID, Node3_ID)
 	).
-mandatoryDirectionExists(X1, X2) :-
-    relation(R),
+mandatoryDirectionExists(Node1_ID, Node2_ID) :-
+    relation(Relation_ID),
     (
-        relationTag(R, "restriction", "only_right_turn");
-        relationTag(R, "restriction", "only_left_turn");
-        relationTag(R, "restriction", "only_straight_on")
+        relationTag(Relation_ID, "restriction", "only_right_turn");
+        relationTag(Relation_ID, "restriction", "only_left_turn");
+        relationTag(Relation_ID, "restriction", "only_straight_on")
     ),
     (
-        relationMember(Y, "way", "from", R),
-        relationMember(X2, "node", "via", R);
-        relationMember(Y, "way", "via", R)
+        relationMember(Way_ID, "way", "from", Relation_ID),
+        relationMember(Node2_ID, "node", "via", Relation_ID);
+        relationMember(Way_ID, "way", "via", Relation_ID)
     ),
-	roadSegment(X1, X2, Y).
-mandatoryDirection(X1, X2, X3) :-
+	roadSegment(Node1_ID, Node2_ID, Way_ID).
+mandatoryDirection(Node1_ID, Node2_ID, Node3_ID) :-
 	(
-		onlyRightTurnRestriction(X1, X2, X3);
-		onlyLeftTurnRestriction(X1, X2, X3);
-		onlyStraightOnRestriction(X1, X2, X3)
+		onlyRightTurnRestriction(Node1_ID, Node2_ID, Node3_ID);
+		onlyLeftTurnRestriction(Node1_ID, Node2_ID, Node3_ID);
+		onlyStraightOnRestriction(Node1_ID, Node2_ID, Node3_ID)
 	).
-yieldSign(X) :-
-	node(X),
-	nodeTag(X, "highway", "give_way").
-stopSign(X) :-
-	node(X),
-	nodeTag(X, "highway", "stop").
-trafficSignal(X) :-
-	node(X),
-	nodeTag(X, "highway", "traffic_signals").
-pedestrianCrossing(X) :-
-	node(X),
-	nodeTag(X, "highway", "crossing").
-tramCrossing(X) :-
-	node(X),
-	nodeTag(X, "railway", "tram_level_crossing").
-trainCrossing(X) :-
-	node(X),
-	nodeTag(X, "railway", "level_crossing").
-busStation(X) :-
-	node(X),
-	nodeTag(X, "public_transport", "stop_position"),
-	nodeTag(X, "bus", "yes"),
-	\+ nodeTag(X, "tram", "yes").
-tramStation(X) :-
-	node(X),
-	nodeTag(X, "public_transport", "stop_position"),
-	nodeTag(X, "tram", "yes"),
-	\+ nodeTag(X, "bus", "yes").
-intermodalStation(X) :-
-	node(X),
-	nodeTag(X, "public_transport", "stop_position"),
-	nodeTag(X, "bus", "yes"),
-	nodeTag(X, "tram", "yes").
-kindergarten(X) :-
-	node(X),
-	nodeTag(X, "amenity", "kindergarten").
-kindergarten(Y) :-
-	way(Y),
-	wayTag(Y, "amenity", "kindergarten").
-school(X) :-
-	node(X),
-	nodeTag(X, "amenity", "school").
-school(Y) :-
-	way(Y),
-	wayTag(Y, "amenity", "school").
+yieldSign(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "highway", "give_way").
+stopSign(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "highway", "stop").
+trafficSignal(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "highway", "traffic_signals").
+pedestrianCrossing(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "highway", "crossing").
+tramCrossing(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "railway", "tram_level_crossing").
+trainCrossing(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "railway", "level_crossing").
+busStation(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "public_transport", "stop_position"),
+	nodeTag(Node_ID, "bus", "yes"),
+	\+ nodeTag(Node_ID, "tram", "yes").
+tramStation(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "public_transport", "stop_position"),
+	nodeTag(Node_ID, "tram", "yes"),
+	\+ nodeTag(Node_ID, "bus", "yes").
+intermodalStation(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "public_transport", "stop_position"),
+	nodeTag(Node_ID, "bus", "yes"),
+	nodeTag(Node_ID, "tram", "yes").
+kindergarten(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "amenity", "kindergarten").
+kindergarten(Way_ID) :-
+	way(Way_ID),
+	wayTag(Way_ID, "amenity", "kindergarten").
+school(Node_ID) :-
+	node(Node_ID),
+	nodeTag(Node_ID, "amenity", "school").
+school(Way_ID) :-
+	way(Way_ID),
+	wayTag(Way_ID, "amenity", "school").
 weatherCondition("dangerous") :-
 	(
         	weatherParameter("temperature", "freezing");
