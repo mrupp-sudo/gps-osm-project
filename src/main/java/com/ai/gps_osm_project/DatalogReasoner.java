@@ -13,8 +13,9 @@ public class DatalogReasoner {
     private final String RULES_FILE_PATH = "src/main/resources/rdf_rules.txt"; // File path to rules
     private final String NAMESPACE = "http://example.org#"; // Namespace URI for resource definitions
     
+    static final String BLUE = "\u001B[34m";
     static final String GREEN = "\u001B[92m";
-    static final String RESET = "\u001B[0m";
+    static final String RESET_COLOR = "\u001B[0m";
 
     private Model model; // Core model for storing RDF data
     private InfModel infModel; // Inference model using rules
@@ -52,65 +53,67 @@ public class DatalogReasoner {
 
     // Query the inference model and print inferred facts
     public void queryInferences() {
-        System.out.println("CLIENT: Inferred Yield Signs:");
+    	System.out.println("CLIENT: Printing inference results");
+    	
+        System.out.println("    " + BLUE + "Yield Signs:" + RESET_COLOR);
         Resource yieldSign = infModel.createResource(NAMESPACE + "yieldSign");
         infModel.listSubjectsWithProperty(RDF.type, yieldSign)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Stop Signs:");
+        System.out.println("    " + BLUE + "Stop Signs:" + RESET_COLOR);
         Resource stopSign = infModel.createResource(NAMESPACE + "stopSign");
         infModel.listSubjectsWithProperty(RDF.type, stopSign)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Traffic Signals:");
+        System.out.println("    " + BLUE + "Traffic Signals:" + RESET_COLOR);
         Resource trafficSignal = infModel.createResource(NAMESPACE + "trafficSignal");
         infModel.listSubjectsWithProperty(RDF.type, trafficSignal)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Pedestrian Crossings:");
+        System.out.println("    " + BLUE + "Pedestrian Crossings:" + RESET_COLOR);
         Resource pedestrianCrossing = infModel.createResource(NAMESPACE + "pedestrianCrossing");
         infModel.listSubjectsWithProperty(RDF.type, pedestrianCrossing)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Tram Crossings:");
+        System.out.println("    " + BLUE + "Tram Crossings:" + RESET_COLOR);
         Resource tramCrossing = infModel.createResource(NAMESPACE + "tramCrossing");
         infModel.listSubjectsWithProperty(RDF.type, tramCrossing)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Train Crossings:");
+        System.out.println("    " + BLUE + "Train Crossings:" + RESET_COLOR);
         Resource trainCrossing = infModel.createResource(NAMESPACE + "trainCrossing");
         infModel.listSubjectsWithProperty(RDF.type, trainCrossing)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Bus Stations:");
+        System.out.println("    " + BLUE + "Bus Stations:" + RESET_COLOR);
         Resource busStation = infModel.createResource(NAMESPACE + "busStation");
         infModel.listSubjectsWithProperty(RDF.type, busStation)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Tram Stations:");
+        System.out.println("    " + BLUE + "Tram Stations:" + RESET_COLOR);
         Resource tramStation = infModel.createResource(NAMESPACE + "tramStation");
         infModel.listSubjectsWithProperty(RDF.type, tramStation)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Intermodal Stations:");
+        System.out.println("    " + BLUE + "Intermodal Stations:" + RESET_COLOR);
         Resource intermodalStation = infModel.createResource(NAMESPACE + "intermodalStation");
         infModel.listSubjectsWithProperty(RDF.type, intermodalStation)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Kindergartens:");
+        System.out.println("    " + BLUE + "Kindergartens:" + RESET_COLOR);
         Resource kindergarten = infModel.createResource(NAMESPACE + "kindergarten");
         infModel.listSubjectsWithProperty(RDF.type, kindergarten)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Schools:");
+        System.out.println("    " + BLUE + "Schools:" + RESET_COLOR);
         Resource school = infModel.createResource(NAMESPACE + "school");
         infModel.listSubjectsWithProperty(RDF.type, school)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + stripNamespace(resource) + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + stripNamespace(resource) + RESET_COLOR));
         
-        System.out.println("CLIENT: Inferred Weather Condition:");
+        System.out.println("    " + BLUE + "Weather Condition:" + RESET_COLOR);
         Property weatherCondition = infModel.createProperty(NAMESPACE + "weatherCondition");
         infModel.listObjectsOfProperty(weatherCondition)
-            .forEachRemaining(resource -> System.out.println("    " + GREEN + resource + RESET));
+            .forEachRemaining(resource -> System.out.println("        " + GREEN + resource + RESET_COLOR));
     }
     
     // Strip the namespace from a resource URI
