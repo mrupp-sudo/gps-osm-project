@@ -127,67 +127,67 @@ perform_reasoning_with_timing :-
     format('    Reachable Nodes: '),
     ( ReachableNodes \= [] 
     -> format('~w~n', [ReachableNodes])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Yield Signs: '),
     ( YieldSigns \= [] 
     -> format('~w~n', [YieldSigns])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Stop Signs: '),
     ( StopSigns \= [] 
     -> format('~w~n', [StopSigns])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Traffic Signals: '),
     ( TrafficSignals \= [] 
     -> format('~w~n', [TrafficSignals])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Pedestrian crossings: '),
     ( PedestrianCrossings \= [] 
     -> format('~w~n', [PedestrianCrossings])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Tram Crossings: '),
     ( TramCrossings \= [] 
     -> format('~w~n', [TramCrossings])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Train Crossings: '),
     ( TrainCrossings \= [] 
     -> format('~w~n', [TrainCrossings])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Bus Stations: '),
     ( BusStations \= [] 
     -> format('~w~n', [BusStations])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Tram Stations: '),
     ( TramStations \= [] 
     -> format('~w~n', [TramStations])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Intermodal Stations: '),
     ( IntermodalStations \= [] 
     -> format('~w~n', [IntermodalStations])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),    
     format('    Kindergartens: '),
     ( Kindergartens \= [] 
     -> format('~w~n', [Kindergartens])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Schools: '),
     ( Schools \= [] 
     -> format('~w~n', [Schools])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     format('    Weather Condition: '),
     ( WeatherCondition \= [] 
     -> format('~w~n', [WeatherCondition])
-    ;   writeln('')  % prints nothing if the list is empty
+    ;   writeln('')
     ),
     
     abolish_all_tables,
