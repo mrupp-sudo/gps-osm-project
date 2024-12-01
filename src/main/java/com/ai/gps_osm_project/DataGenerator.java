@@ -23,7 +23,7 @@ import io.jenetics.jpx.WayPoint;
 public class DataGenerator {
 
     private final String TRACK_FILE_PATH = "src/main/resources/track.gpx"; // File path to GPX data
-    private final int RADIUS = 100; // Specify radius of accessed data around trackpoints
+    private final int RADIUS = 200; // Specify radius of accessed data around trackpoints
     private final String FACTS_FOLDER_PATH = "src/main/resources/facts"; // Folder for storing facts files
     
     private GPX gpx;
