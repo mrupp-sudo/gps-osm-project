@@ -1,8 +1,4 @@
 # Driving Simulation with OpenStreetMap
 
-This project implements a system that provides dynamically generated data, including map information and sensor readings (i.e., GPS). Specifically, it uses publicly available data from [OpenStreetMap](https://www.openstreetmap.org/) to provide map data, as well as generate data streams that simulate the movement of a car based on time-dependent GPS coordinates. 
-
-The generated data is represented as Datalog facts (in Prolog syntax) to enable reasoning with Datalog rules. The rules are designed to address the criticality of traffic situations. While an [Apache Jena](https://jena.apache.org/) reasoner is integrated as an example, the data stream can be accessed through a socket connection with any custom reasoner.
-
-*To be continued…*
+Autonomous driving (AD) has the potential to revolutionize transportation by enhancing road safety, reducing human error, and improving efficiency. To explore the application of semantic technologies in AD, this project presents a system for simulating vehicle behavior by integrating [OpenStreetMap](https://www.openstreetmap.org/) (OSM) and weather data into a dynamic knowledge representation using Datalog. The system generates Global Positioning System (GPS)-based data streams and retrieves spatial and environmental information, converting it into structured facts using Prolog syntax. Criticality and reachability of driving situations are analyzed through a rule-based framework, taking into account factors such as road features, traffic objects, and weather conditions, which can be used to test different reasoners. While a general-purpose, rule-based reasoning engine from [Apache Jena](https://jena.apache.org/) is integrated as an example, the data stream can be accessed through a Transmission Control Protocol (TCP) socket connection with any custom reasoner.
 
