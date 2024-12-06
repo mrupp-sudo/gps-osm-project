@@ -1,7 +1,5 @@
 % Datalog rules
 roadSegment(Node1_ID, Node2_ID, Way_ID) :-
-	node(Node1_ID),
-	node(Node2_ID),
 	nextInWay(Node1_ID, Node2_ID, Way_ID),
 	way(Way_ID),
 	(
@@ -29,8 +27,6 @@ roadSegment(Node1_ID, Node2_ID, Way_ID) :-
 	\+ wayTag(Way_ID, "access", "private"),
 	\+ wayTag(Way_ID, "oneway", "-1").
 roadSegment(Node2_ID, Node1_ID, Way_ID) :-
-	node(Node1_ID),
-	node(Node2_ID),
 	nextInWay(Node1_ID, Node2_ID, Way_ID),
 	way(Way_ID),
 	(
